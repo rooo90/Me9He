@@ -44,24 +44,24 @@ client.on("message", message => {
       .setDescription(`
 ** Bot ${client.user.username} Commands **
 ----------------------------
--   Thx for use the bot 
+-   شكرا لأستخدام البوت 
 -   By XMGX 
 .
 .
-. Mping = Your ping
+. Mping = يعطيك بنقك
+. Msay= يكتب الي تكتب بعد الأمر
+. Mavatar = يعطيك افتارك وافتار الي تمنشنه
+. 
 .
 .
-. Msay= Say what you say
+. 
 .
 .
-.  more cammands soon....
+. 
 .
-.
-. invite the bot :
-.
-.  https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
-.
-.
+.  
+.invite the bot :
+.https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 ----------------------------
 `)
 
@@ -95,6 +95,24 @@ client.on('message', message => {
        }
   }
 });
+
+client.on('message', message => {
+    if (message.content.startsWith("Mavatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
 
 client.login(process.env.BOT_TOKEN);
 

@@ -79,7 +79,7 @@ client.on("message", message => {
       if (message.content === "Mping") {
       const embed = new Discord.RichEmbed()
   .setColor("RANDOM")
-  .addField('**Pong:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+  .addField('**Your ping:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
   message.channel.sendEmbed(embed);
     }
 });

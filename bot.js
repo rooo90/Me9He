@@ -43,26 +43,25 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 ** Bot ${client.user.username} Commands **
-----------------------------
+╔[❖════════════════════════❖]╗
 -   شكرا لأستخدام البوت 
 -   By XMGX 
-.
-.
-. Mping = يعطيك بنقك
-. Msay= يكتب الي تكتب بعد الأمر
-. Mavatar = يعطيك افتارك وافتار الي تمنشنه
-. 
-.
-.
-. 
-.
-.
-. 
-.
-.  
-.invite the bot :
-.https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
-----------------------------
+╚[❖════════════════════════❖]╝
+╔[❖════════════════════════❖]╗
+- Mping = يعطيك بنقك
+- Msay= يكتب الي تكتب بعد الأمر
+- Mavatar = يعطيك افتارك وافتار الي تمنشنه
+- Mbc = يسوي برودكاست للكل 
+-
+-
+-
+╚[❖════════════════════════❖]╝
+╔[❖════════════════════════❖]╗
+-invite the bot :
+https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
+-Support server:
+https://discord.gg/fHz84Z
+╚[❖════════════════════════❖]╝
 `)
 
 
@@ -110,6 +109,29 @@ client.on('message', message => {
         .setColor("RANDOM")
         .setImage(`${x5bzm.avatarURL}`)
       message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
+   let embed = new Discord.RichEmbed()
+    let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc') {
+    if (!args[1]) {
+return;
+}
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+            var bc = new Discord.RichEmbed()
+            .addField(' » الرسالة : ', args)
+            .setColor('#ff0000')
+            // m.send(`[${m}]`);
+            m.send(`${m}`,{embed: bc});
+        });
+    }
+    } else {
+        return;
     }
 });
 

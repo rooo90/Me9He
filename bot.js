@@ -29,17 +29,30 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 });
 
 
-// playing
-client.on('ready', () => {                           
-client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp |By XMGX`,'https://www.twitch.tv/v5bz');
-}); 
+  client.on('ready', function(){
+    var ms = 1000 ;
+    var setGame = [`Mh `,` Mhe`,`Mhel`,`Mhelp`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/idk`);
+    }, ms);1000
+
+});  
 
 
 client.on("message", message => {
  if (message.content === prefix + "help") {
  message.channel.send(":white_check_mark: ")
   const embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
+      .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 ** Bot ${client.user.username} Commands **
@@ -77,7 +90,7 @@ message.author.sendEmbed(embed)
 client.on("message", message => {
       if (message.content === "Mping") {
       const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+  .setColor("#00ff47")
   .addField('**Your ping:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
   message.channel.sendEmbed(embed);
     }
@@ -106,7 +119,7 @@ client.on('message', message => {
           
       }
         const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor("#00ff47")
         .setImage(`${x5bzm.avatarURL}`)
       message.channel.sendEmbed(embed);
     }
@@ -125,7 +138,7 @@ return;
    if(!message.member.hasPermission('ADMINISTRATOR')) return;
             var bc = new Discord.RichEmbed()
             .addField(' » الرسالة : ', args)
-            .setColor('#ff0000')
+            .setColor('#00ff47')
             // m.send(`[${m}]`);
             m.send(`${m}`,{embed: bc});
         });
@@ -134,6 +147,44 @@ return;
         return;
     }
 });
+
+
+client.on('message' , async (message) => {
+       if(message.content.startsWith(`<@${client.user.id}>`)) {
+              message.channel.startTyping()
+ let responses = [
+        'تحتاج مساعدة جرب Mhelp',
+        'هلا امرني',
+       'احبك ياخي'
+    ]
+    
+    // Fetch a random item from the array
+    let fetched = responses[Math.floor(Math.random() * responses.length)];
+   message.reply(fetched)
+   message.channel.stopTyping()
+       }
+  
+});
+
+
+   client.on('message', message => {
+            if (message.content.startsWith("السلام عليكم")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**وعليكم السلام **', ' . ')
+.setColor('#00ff47')
+  message.channel.sendEmbed(embed);
+            }
+ });
+    client.on('message', message => {
+            if (message.content.startsWith("ههه")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**دوم يارب:kissing_heart: **', ' . ')
+.setColor('#00ff47')
+  message.channel.sendEmbed(embed);
+            }
+ });
 
 
 client.login(process.env.BOT_TOKEN);

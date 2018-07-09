@@ -61,14 +61,16 @@ client.on("message", message => {
 -   By XMGX 
 ╚[❖════════════════════════❖]╝
 ╔[❖════════════════════════❖]╗
-- Mping = يعطيك بنقك
-- Msay= يكتب الي تكتب بعد الأمر
-- Mavatar = يعطيك افتارك وافتار الي تمنشنه
-- Mbc = يسوي برودكاست للكل 
--
--
--
+:crown: اوامر ادارية:crown: 
+Mbc = يرسل رسالة للكل
 ╚[❖════════════════════════❖]╝
+╔[❖════════════════════════❖]╗
+:earth_africa: أوامر عامة:earth_asia: 
+Msay = البوت يقول الكلام الي بعد الأمر
+Mping = يعطيك بنقك
+Mavatar = يعطيك صورتك أو صورة الي تمنشنه
+╚[❖════════════════════════❖]╝
+البوت تحت الانشاء.......
 ╔[❖════════════════════════❖]╗
 -invite the bot :
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
@@ -185,6 +187,55 @@ client.on('message' , async (message) => {
   message.channel.sendEmbed(embed);
             }
  });
+
+
+client.on('message', function(msg) {
+    const prefix = 'M'
+    if(msg.content.startsWith (prefix  + 'server')) {
+      let embed = new Discord.RichEmbed()
+      .setColor('#00ff47')
+      .setThumbnail(msg.guild.iconURL)
+      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
+      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
+      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
+      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
+      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
+    }
+  });
+
+
+ client.on('message', message => {
+     if (message.content === (prefix + "bot")) {
+         if(!message.channel.guild) return;
+     let embed = new Discord.RichEmbed()
+  .setColor("#00ff47")
+  .addField("** :white_check_mark: Servers: **" , client.guilds.size)
+  .addField("** :white_check_mark: Users: **" , client.users.size)
+  .addField("** :white_check_mark: Channels: **" , client.channels.size)
+  .addField("** :rocket: Ping **" , Date.now() - message.createdTimestamp)
+    .setTimestamp()
+  message.channel.sendEmbed(embed);
+    }
+}); 
+
+
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('Mbcu')){
+ if(!message.author.id === '419471939493429250') return;
+message.channel.sendMessage(' :white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);

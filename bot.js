@@ -56,27 +56,32 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 ** Bot ${client.user.username} Commands **
-╔[❖════════════════════════❖]╗
+╔[❖══════❖]╗
 -   شكرا لأستخدام البوت 
 -   By XMGX 
-╚[❖════════════════════════❖]╝
-╔[❖════════════════════════❖]╗
+╚[❖══════❖]╝
+╔[❖══════❖]╗
 :crown: اوامر ادارية:crown: 
 Mbc = يرسل رسالة للكل
-╚[❖════════════════════════❖]╝
-╔[❖════════════════════════❖]╗
+╚[❖══════❖]╝
+╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
 Msay = البوت يقول الكلام الي بعد الأمر
 Mping = يعطيك بنقك
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
-╚[❖════════════════════════❖]╝
+Mhack = لخداع صديقك انك هكرته
+Mmsg = لارسال رسالة للشخص
+Mallbots = لمعرفة كل البوتات الي بالسيرفر
+Musers = لمعرفة السيرفرات التي تستخدم البوت
+Mbot = لمعرفة عدد السيرفرات الي تستخدم البوت
+╚[❖══════❖]╝
 البوت تحت الانشاء.......
-╔[❖════════════════════════❖]╗
+╔[❖══════❖]╗
 -invite the bot :
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 -Support server:
 https://discord.gg/fHz84Z
-╚[❖════════════════════════❖]╝
+╚[❖══════❖]╝
 `)
 
 
@@ -235,6 +240,114 @@ client.users.forEach(m =>{
 m.sendMessage(args)
 })
 }
+});
+
+
+client.on('message', message => {
+    if (message.content.startsWith("Mhack")) {
+      if (message.author.bot) return
+           message.delete();
+             let args = message.content.split(' ').slice(1);
+                   let virusname = args.join(' ');
+                 if (virusname < 1) {
+                     return message.channel.send("``اكتب اسم الشخص الي تبي يتهكر``");
+                                     }
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
+             }, 1000)
+            setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓] 25%').setColor(0xFF0000)})
+             }, 2000)
+           setTimeout(function() {     
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 100%').setColor(0xFF0000)})
+             }, 3000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
+             }, 4000)
+              setTimeout(function() {
+               m.delete()
+           }, 5000)
+             setTimeout(function() {
+               message.channel.send('تم تهكيرك')
+           }, 6000)
+           });
+         }
+ });
+
+
+
+client.on('message', message => {
+     if(!message.channel.guild) return;
+var prefix = "M";
+                if(message.content.startsWith(prefix + 'allbots')) {
+
+    
+    if (message.author.bot) return;
+    let i = 1;
+        const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
+          const embed = new Discord.RichEmbed()
+          .setAuthor(message.author.tag, message.author.avatarURL)
+          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+${botssize.join('\n')}`)
+.setFooter(client.user.username, client.user.avatarURL)
+.setTimestamp();
+message.channel.send(embed)
+
+}
+
+
+});
+
+
+
+client.on('message', message => {
+       if (message.content.startsWith(prefix + 'users')) {
+     let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
+  let embed = new Discord.RichEmbed()
+  .setTitle(`${client.guilds.size}سيرفرات `)
+  .setDescription(`${msg}`)
+  .setColor("#00ff47");
+  message.channel.send(embed);
+}
+});
+
+
+client.on("message", function(message) {
+
+  const bannedwords = [
+    "زق",
+    "زبي",
+    "محنة",
+    "انيك",
+    "خنيث",
+    "كس"
+
+  ];
+
+  if(bannedwords.some(word => message.content.includes(word))) {
+    message.delete()
+    message.reply("ممنوع السب وأذكر الله");
+  };
+});
+
+
+
+const perfix = 'M';
+client.on('message', msg => {
+ if (msg.content.startsWith(prefix + 'msg')) {
+      let args = msg.content.split(' ').slice(1)
+      if (!args[0]) return msg.reply(`**منشن الشخص اولا**`)
+      if (!args[1]) return msg.reply(`**ما هي الرساله المطلوب ارسالها**`)
+      let norElden = msg.mentions.members.first()
+      if (!norElden) return msg.reply(`**يجب تحديد الشخص**`)
+      let norEldenEmbed = new Discord.RichEmbed()
+      .setTitle(`**رسالة جديده لك من شخص ما**`)
+      .setDescription(args.join(" "))
+
+      client.users.get(`${norElden.id}`).send(norEldenEmbed)
+      msg.reply(`**تم ارسال الرساله**`)
+    }
 });
 
 

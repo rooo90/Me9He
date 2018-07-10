@@ -78,9 +78,9 @@ Mbot = لمعرفة عدد السيرفرات الي تستخدم البوت
 البوت تحت الانشاء.......
 ╔[❖══════❖]╗
 -invite the bot :
-https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
+https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=1812462657&scope=bot
 -Support server:
-https://discord.gg/fHz84Z
+https://discord.gg/A8752Ga
 ╚[❖══════❖]╝
 `)
 

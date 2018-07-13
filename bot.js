@@ -174,6 +174,20 @@ return;
 });
 
 
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('Mbcusers')){
+if(!message.author.id === '419471939493429250') return;
+message.channel.sendMessage('LOADING |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+
+
 client.on('message' , async (message) => {
        if(message.content.startsWith(`<@${client.user.id}>`)) {
               message.channel.startTyping()
@@ -248,17 +262,6 @@ client.on('message', function(msg) {
 }); 
 
 
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('Mbcu')){
- if(!message.author.id === '419471939493429250') return;
-message.channel.sendMessage(' :white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
 
 
 client.on('message', message => {
@@ -335,7 +338,7 @@ client.on("message", function(message) {
 
   const bannedwords = [
     "زق",
-    "زبي",
+    "زب",
     "محنة",
     "انيك",
     "خنيث",

@@ -82,6 +82,13 @@ Mمريم
 لعبة مريم
 Mعقاب
 لعبة عقاب
+╚[❖══════❖]╝
+╔[❖══════❖]╗
+:innocent: بعض المميزات الجانبية:innocent: 
+:no_entry: مانع السب :no_entry: 
+:joy_cat: قافط الاوف لاين:joy_cat: 
+البوت تحت التطوير........
+╚[❖══════❖]╝
 ╔[❖══════❖]╗
 -invite the bot :
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
@@ -178,7 +185,7 @@ return;
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('Mbcusers')){
+if (message.content.startsWith('Mall')){
 if(!message.author.id === '419471939493429250') return;
 message.channel.sendMessage('LOADING |:white_check_mark:')
 client.users.forEach(m =>{
@@ -220,6 +227,15 @@ client.on('message' , async (message) => {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField ('**دوم يارب:kissing_heart: **', ' . ')
+.setColor('#00ff47')
+  message.channel.sendEmbed(embed);
+            }
+ });
+    client.on('message', message => {
+            if (message.content.startsWith("برب")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**تيت وترجع بوقت بسيط صح؟ **', ' . ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }

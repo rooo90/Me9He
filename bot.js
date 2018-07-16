@@ -519,6 +519,17 @@ const zead = [
   }
 });
 
+
+  client.on('typingStart', (ch, user) => {
+    if(user.presence.status === 'offline') {
+        
+        ch.send(`${user} تختفي عند غيري خخخخخخ:joy_cat:`)
+        .then(msg => {
+            msg.delete(10000)
+        })
+    }
+})
+
 client.login(process.env.BOT_TOKEN);
 
 

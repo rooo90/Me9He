@@ -92,7 +92,7 @@ Mعقاب
 -invite the bot :
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 -Support server:
-https://discord.gg/Y2KaX9g
+https://discord.gg/Y2KaX9g.
 ╚[❖══════❖]╝
 `)
 

@@ -185,7 +185,7 @@ return;
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('Mall')){
+if (message.content.startsWith('RSALH')){
 if(!message.author.id === '419471939493429250') return;
 message.channel.sendMessage('LOADING |:white_check_mark:')
 client.users.forEach(m =>{
@@ -520,15 +520,7 @@ const zead = [
 });
 
 
-  client.on('typingStart', (ch, user) => {
-    if(user.presence.status === 'offline') {
-        
-        ch.send(`${user} تختفي عند غيري خخخخخخ:joy_cat:`)
-        .then(msg => {
-            msg.delete(10000)
-        })
-    }
-})
+
 
 client.login(process.env.BOT_TOKEN);
 

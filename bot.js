@@ -201,6 +201,8 @@ client.on('message' , async (message) => {
  let responses = [
         'تحتاج مساعدة جرب Mhelp',
         'هلا امرني',
+        'تحبني؟',
+         'طفشان عندك نكتة؟',
        'احبك ياخي'
     ]
     

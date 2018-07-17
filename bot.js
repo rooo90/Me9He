@@ -86,7 +86,6 @@ Mعقاب
 ╔[❖══════❖]╗
 :innocent: بعض المميزات الجانبية:innocent: 
 :no_entry: مانع السب :no_entry: 
-:joy_cat: قافط الاوف لاين:joy_cat: 
 البوت تحت التطوير........
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
@@ -520,17 +519,6 @@ const zead = [
    message.react("??")
   }
 });
-
-
-  client.on('typingStart', (ch, user) => {
-    if(user.presence.status === 'offline') {
-        
-        ch.send(`${user} تختفي عند غيري خخخخخخ:joy_cat:`)
-        .then(msg => {
-            msg.delete(10000)
-        })
-    }
-})
 
 
 client.login(process.env.BOT_TOKEN);

@@ -522,7 +522,7 @@ const zead = [
 });
 
 const developers = ["419471939493429250","ايدي حق مطورين اخرين",""]
-const adminprefixe = "9";
+const adminprefixe = "!";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;

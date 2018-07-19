@@ -452,7 +452,7 @@ const Za7f = [
   var embed = new Discord.RichEmbed()
   .setColor('#00ff47')
    .setThumbnail(message.author.avatarURL) 
- .addField('R Bot' ,
+ .addField('M Bot' ,
   `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[38ab] Send By: ' + message.author.username)
@@ -517,7 +517,7 @@ const zead = [
   .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
   .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
    message.channel.sendEmbed(mariam);
-   message.react("??")
+   message.react("لعبة مريم")
   }
 });
 

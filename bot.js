@@ -89,6 +89,8 @@ Mعقاب
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 -invite the bot:
+من الأمر: Minvite
+أو OR
 الرابط
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 -Support server:

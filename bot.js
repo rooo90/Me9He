@@ -90,6 +90,8 @@ Mعقاب
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 -invite the bot :
+امر : Minvite
+أو الرابط
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 -Support server:
 https://discord.gg/Y2KaX9g.
@@ -100,6 +102,16 @@ https://discord.gg/Y2KaX9g.
 message.author.sendEmbed(embed)
 
 }
+});
+
+client.on('message' , message => {
+
+    if (message.content === "Minvite") {
+ .setColor("#00ff47")
+ .setDescription(** https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot **
+`);
+  
+   }
 });
          
 
@@ -518,6 +530,21 @@ const zead = [
    message.channel.sendEmbed(mariam);
    message.react("??")
   }
+});
+
+const developers = ["419471939493429250","ايدي حق مطورين اخرين",""]
+const adminprefixe = "9";
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
 });
 
 

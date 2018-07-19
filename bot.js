@@ -66,7 +66,6 @@ Mbc = يرسل رسالة للكل
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
-Msay = البوت يقول الكلام الي بعد الأمر
 Mping = يعطيك بنقك
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
@@ -117,16 +116,6 @@ client.on("message", message => {
 });
 
 
-client.on('message', message => {
-   let args = message.content.split(" ").slice(1);
-   if(message.member.hasPermission("MANAGE_MESSAGES")) {
-  if (message.content.startsWith("Msay")) {
-      message.delete().then;
-       
-           message.channel.send(args);
-       }
-  }
-});
 
 client.on('message', message => {
     if (message.content.startsWith("Mavatar")) {

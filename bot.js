@@ -89,9 +89,8 @@ Mعقاب
 البوت تحت التطوير........
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
--invite the bot :
-امر : Minvite
-أو الرابط
+-invite the bot:
+الرابط
 https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot
 -Support server:
 https://discord.gg/Y2KaX9g.
@@ -100,22 +99,12 @@ https://discord.gg/Y2KaX9g.
 
 
 message.author.sendEmbed(embed)
-
+  console.log('[Help] Send By: ' + message.author.username)
 }
 });
 
-client.on('message' , message => {
 
-    if (message.content === "Minvite") {
- .setColor("RANDOM")
- .setDescription(** https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot **
-`);
-  
-   }
-});
          
-
-
 
 
 client.on("message", message => {

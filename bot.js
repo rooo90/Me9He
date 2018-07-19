@@ -102,7 +102,15 @@ message.author.sendEmbed(embed)
 }
 });
 
+client.on('message' , message => {
 
+if (message.content === prefix + "invite") {
+      .setColor("#00ff47")
+ .setDescription(** https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot**
+`);
+  
+   }
+});
          
 
 

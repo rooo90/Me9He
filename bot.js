@@ -47,6 +47,15 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 });  
 
+   client.on('message', message => {
+            if (message.content.startsWith("جديد البوت")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**جديد اليوم **', ' اضافة أوامر كثيرة ')
+.setColor('#00ff47')
+  message.channel.sendEmbed(embed);
+            }
+ });
 
 client.on("message", message => {
  if (message.content === prefix + "help") {
@@ -59,6 +68,9 @@ client.on("message", message => {
 ╔[❖══════❖]╗
 -   شكرا لأستخدام البوت 
 -   By XMGX 
+-أمر مهم جدا
+-**__جديد البوت__**
+- يوميا شفه
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :crown: اوامر ادارية:crown: 
@@ -67,7 +79,9 @@ Mbc = يرسل رسالة للكل
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
 Mping = يعطيك بنقك
+Mserava = افتار السيرفر
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
+Mid = ايديك
 Mmsg = لارسال رسالة للشخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
 Musers = لمعرفة السيرفرات التي تستخدم البوت
@@ -75,6 +89,8 @@ Mserver = معلومات السيرفر
 Mbot = لمعرفة عدد السيرفرات الي تستخدم البوت
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
+Mمن تحب اكثر
+لعبة من تحب اكثر
 Mhack 
 لخداع صديقك انك هكرته
 Mمريم
@@ -216,6 +232,9 @@ client.on('message' , async (message) => {
         'هلا امرني',
         'تحبني؟',
          'طفشان عندك نكتة؟',
+         'تمنشن بوت؟',
+         'اعجبك البوت',
+         'لا تنسى تزور سيرفر السبورت',
        'احبك ياخي'
     ]
     
@@ -232,7 +251,7 @@ client.on('message' , async (message) => {
             if (message.content.startsWith("السلام عليكم")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**وعليكم السلام **', ' . ')
+.addField ('**وعليكم السلام **', '  ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }
@@ -241,7 +260,7 @@ client.on('message' , async (message) => {
             if (message.content.startsWith("ههه")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**دوم يارب:kissing_heart: **', ' . ')
+.addField ('**دوم يارب:kissing_heart: **', '  ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }
@@ -541,6 +560,66 @@ client.on('guildCreate', guild => {
 اسم السيرفر: __${guild.name}__
 صاحب السيرفر: __${guild.owner}__**`)
 }); 
+
+
+client.on("message", message => {    
+    if(!message.channel.guild) return;
+if(message.author.bot) return;
+if(message.content === "Mserava"){ 
+    const embed = new Discord.RichEmbed()
+
+.setTitle(`صورة سيرفر ** ${message.guild.name} **`)
+.setAuthor(message.author.username, message.guild.iconrURL)
+.setColor('#00ff47')
+.setImage(message.guild.iconURL)
+
+message.channel.send({embed});
+}
+});
+
+client.on('message', message => {
+   if (message.content.startsWith("Mid")) {
+                if(!message.channel.guild) return message.reply('**هذا الامر فقط في السيرفرات وشكرا**');
+
+               var mentionned = message.mentions.users.first();
+    var mentionavatar;
+      if(mentionned){
+          var mentionavatar = mentionned;
+      } else {
+          var mentionavatar = message.author;
+          
+      }
+   let embed = new Discord.RichEmbed()
+  .setColor("#00ff47")
+   .setThumbnail(`${mentionavatar.avatarURL}`)
+  .addField("الاسم:",`<@` + `${mentionavatar.id}` + `>`, true)
+  .addField('التاق:',"#" +  `${mentionavatar.discriminator}`, true)
+   .addField("ايديك:", "**[" + `${mentionavatar.id}` + "]**", true)
+  .addField("وقت انشاء حسابك:", "**[" + `${mentionavatar.createdAt}` + "]**", true)
+     
+     
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
+});
+
+const mepro = [
+ '* من تحب اكثر امك او ابوك*', '* من تحب اكثر الوجبات سريعة ولا وبجات منزلية *', 'من تحب اكثر اخوك ولا اختك.', '  من تحب اكثر النوم ولا  السهر.', 'من تحب اكثر هاتف فقط انت تمتلكه في عالم او تلفاز ضخم. ', 'من تحب اكثر مدينتك او اليابان', ' من تحب اكثر ابوك يضربك كف قوي ولا شخص غريب يضربك كف قوي.', 'من تحب اكثر جدك او جدتك. ', 'من تحب اكثر كرة سلة او كرة قدم ', 'من تحب اكثر تشحن هاتفك كل ثلاث ايام ولا بدون انترنت لمدة ثلاث ايام.', '
+  .', 'من تحب اكثر تبرمج العاب ولا تبرمج مواقع', ' من تحب اكثر تشتهر بواسطة سوشيال ميديا ولا تشتهر بفضل لعبة البولينغ.*', ' من تحب اكثر تكون ممثل وانت بطل قصة وفلوس قليلة ولا تكون الشخصية شريرة بس فلوس كثيرة.', '*من تحب اكثر كريستيانو ولا ميسي. *', '*من تحب اكثر النوم او تشتغل في الليل والنهار وتربح كثير فلوس.*', '* من تحب اكثر يكون عندك اصدقاء في طفولتك وماعندك اصدقاء لما تكبر او العكس. *', '*  من تحب اكثر تولد بدون يكون عندك فقط يد وحدة ولا تولد عندك رجل وحدة فقط.*', '*من تحب اكثر يكون عمرك قليل والكل يحبك او عمرك طويل جدا والكل يكرهك. *', '*من تحب اكثر تعيش في اسوأ مكان في عالم وامك موجودة معك ولا تعيش افضل بلد بس امك ميتة. *' 
+] 
+client.on('message', message => {
+ var prefix = 'M
+ 
+ ; 
+if (message.content.startsWith(prefix + 'من تحب اكثر')){ 
+var mariam= new Discord.RichEmbed() 
+.setTitle("من تحب أكثر؟")
+ .setColor('#00ff47') 
+.setDescription({mepro[Math.floor(Math
+.random() * mepro.length)]}) message
+.channel.sendEmbed(mariam); message.react("🤔")
+ }
+ });
 
 
 client.login(process.env.BOT_TOKEN);

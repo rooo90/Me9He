@@ -513,7 +513,11 @@ const zead = [
   }
 });
 
-
+client.on('guildCreate', guild => {
+  client.channels.get("470304850081480724").send(`**البوت نور سيرفر جديد:innocent: 
+اسم السيرفر: __${guild.name}__
+صاحب السيرفر: __${guild.owner}__**`)
+}); 
 
 
 client.login(process.env.BOT_TOKEN);

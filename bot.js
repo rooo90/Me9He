@@ -225,7 +225,7 @@ client.on('message' , async (message) => {
             if (message.content.startsWith("برب")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**تيت وترجع بوقت بسيط صح؟ **', ' . ')
+.addField ('**تيت عد بوقت بسيط ... **', ' فقلبي يحترق شوقا ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }

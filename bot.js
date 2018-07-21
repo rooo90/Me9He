@@ -81,7 +81,6 @@ Mbc = يرسل رسالة للكل
 Mping = يعطيك بنقك
 Mserava = افتار السيرفر
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
-Mid = ايديك
 Mmsg = لارسال رسالة للشخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
 Musers = لمعرفة السيرفرات التي تستخدم البوت
@@ -575,31 +574,7 @@ message.channel.send({embed});
 }
 });
 
-client.on('message', message => {
-   if (message.content.startsWith("Mid")) {
-                if(!message.channel.guild) return message.reply('**هذا الامر فقط في السيرفرات وشكرا**');
 
-               var mentionned = message.mentions.users.first();
-    var mentionavatar;
-      if(mentionned){
-          var mentionavatar = mentionned;
-      } else {
-          var mentionavatar = message.author;
-          
-      }
-   let embed = new Discord.RichEmbed()
-  .setColor("#00ff47")
-   .setThumbnail(`${mentionavatar.avatarURL}`)
-  .addField("الاسم:",`<@` + `${mentionavatar.id}` + `>`, true)
-  .addField('التاق:',"#" +  `${mentionavatar.discriminator}`, true)
-   .addField("ايديك:", "**[" + `${mentionavatar.id}` + "]**", true)
-  .addField("وقت انشاء حسابك:", "**[" + `${mentionavatar.createdAt}` + "]**", true)
-     
-     
-  message.channel.sendEmbed(embed);
-  console.log('[id] Send By: ' + message.author.username)
-    }
-});
 
 
 

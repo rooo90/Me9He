@@ -211,7 +211,7 @@ client.on('message' , async (message) => {
             if (message.content.startsWith("السلام عليكم")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**وعليكم السلام **', '  ')
+.addField ('**وعليكم السلام **', ' . ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }
@@ -220,7 +220,7 @@ client.on('message' , async (message) => {
             if (message.content.startsWith("ههه")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**دوم يارب:kissing_heart: **', '  ')
+.addField ('**دوم يارب:kissing_heart: **', ' . ')
 .setColor('#00ff47')
   message.channel.sendEmbed(embed);
             }

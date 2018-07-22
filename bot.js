@@ -79,7 +79,6 @@ Mbc = يرسل رسالة للكل
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
 Mping = يعطيك بنقك
-Mserava = افتار السيرفر
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
@@ -559,20 +558,6 @@ client.on('guildCreate', guild => {
 }); 
 
 
-client.on("message", message => {    
-    if(!message.channel.guild) return;
-if(message.author.bot) return;
-if(message.content === "Mserava"){ 
-    const embed = new Discord.RichEmbed()
-
-.setTitle(`صورة سيرفر ** ${message.guild.name} **`)
-.setAuthor(message.author.username, message.guild.iconrURL)
-.setColor('#00ff47')
-.setImage(message.guild.iconURL)
-
-message.channel.send({embed});
-}
-});
 
 
 

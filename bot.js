@@ -510,7 +510,7 @@ const zead = [
 });
 
 client.on('message', message => {
-if (Mpoints[message.author.id]) points[message.author.id] = {
+if (!points[message.author.id]) points[message.author.id] = {
     points: 50,
   };
 if (message.content.startsWith(prefix + 'minecraft')) { 

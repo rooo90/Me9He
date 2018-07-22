@@ -47,15 +47,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 });  
 
-   client.on('message', message => {
-            if (message.content.startsWith("جديد البوت")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField ('**جديد اليوم **', ' اضافة أوامر كثيرة ')
-.setColor('#00ff47')
-  message.channel.sendEmbed(embed);
-            }
- });
+
 
 client.on("message", message => {
  if (message.content === prefix + "help") {
@@ -68,9 +60,6 @@ client.on("message", message => {
 ╔[❖══════❖]╗
 -   شكرا لأستخدام البوت 
 -   By XMGX 
--أمر مهم جدا
--**__جديد البوت__**
-- يوميا شفه
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :crown: اوامر ادارية:crown: 
@@ -146,7 +135,7 @@ client.on("message", message => {
       if (message.content === "Mping") {
       const embed = new Discord.RichEmbed()
   .setColor("#00ff47")
-  .addField('**Your ping:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+  .addField('**Pingo:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
   message.channel.sendEmbed(embed);
     }
 });

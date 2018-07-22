@@ -543,7 +543,8 @@ message.channel.send('**عندك 15 ثانية الحق**').then(msg => {
     })
 }
 });
-
+const fs = require('fs');
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 
 
 

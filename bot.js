@@ -207,34 +207,6 @@ client.on('message' , async (message) => {
 });
 
 
-   client.on('message', message => {
-            if (message.content.startsWith("السلام عليكم")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField ('**وعليكم السلام **', ' . ')
-.setColor('#00ff47')
-  message.channel.sendEmbed(embed);
-            }
- });
-    client.on('message', message => {
-            if (message.content.startsWith("ههه")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField ('**دوم يارب:kissing_heart: **', ' . ')
-.setColor('#00ff47')
-  message.channel.sendEmbed(embed);
-            }
- });
-    client.on('message', message => {
-            if (message.content.startsWith("برب")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField ('**تيت عد بوقت بسيط ... **', ' فقلبي يحترق شوقا ')
-.setColor('#00ff47')
-  message.channel.sendEmbed(embed);
-            }
- });
-
 
 client.on('message', function(msg) {
     const prefix = 'M'

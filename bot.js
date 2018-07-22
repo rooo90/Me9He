@@ -516,7 +516,11 @@ const zead = [
 });
 
 
-
+ client.on('guildCreate', guild => {
+   client.channels.get("ايدي الروم").send(`**:innocent: البوت نور سيرفر جديد:innocent: 
+سيرفر: __${guild.name}__
+صاحب السيرفر: __${guild.owner}__**`)
+}); 
 
 
 

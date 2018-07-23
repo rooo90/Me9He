@@ -71,17 +71,15 @@ Mping = يعطيك بنقك
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
-Musers = لمعرفة السيرفرات التي تستخدم البوت
+Muser = لمعرفة السيرفرات التي تستخدم البوت
+Muse2 = لمعرفة عدد السيرفرات التي تستخدم البوت لكن بطريقة اخرى
 Mserver = معلومات السيرفر
-Mbot = لمعرفة عدد السيرفرات الي تستخدم البوت
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
 Mhack 
 لخداع صديقك انك هكرته
 Mمريم
 لعبة مريم
-Mminecraft
-أسئلة ماين كرافتية
 Mعقاب
 لعبة عقاب
 ╚[❖══════❖]╝
@@ -511,45 +509,6 @@ const zead = [
     }
   });
  
-
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'minecraft')) { 
-    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-
-const type = require('./minecraft/minecraft.json'); 
-const item = type[Math.floor(Math.random() * type.length)]; 
-const filter = response => { 
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**عندك 15 ثانية الحق**').then(msg => {
-    let embed = new Discord.RichEmbed()
-    .setColor('#00ff47')
-    .setFooter("ماينكرفت  | M Games", 'https://cdn.discordapp.com/attachments/465137484427296768/470700189443948544/379a371a61f3fdb334df01b2fbf89f7d298b3e7c_hq.png')
-    .setDescription(`** ${item.type}**`)
-
-    msg.channel.sendEmbed(embed).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ **صح عليك يا فنان**`); 
-
-        console.log(`[Typing] ${collected.first().author} typed the word.`);
-            let won = collected.first().author; 
-            points[won.id].points++;
-          })
-          .catch(collected => { 
-            message.channel.send(`:x: :stuck_out_tongue_winking_eye: **خطأ يا سبايك**`);
-          })
-        })
-    })
-}
-});
-const fs = require('fs');
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
-
-
 
 
 

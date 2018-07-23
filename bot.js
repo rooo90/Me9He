@@ -502,7 +502,7 @@ const zead = [
   var mariam= new Discord.RichEmbed()
   .setTitle("لعبة مريم ..")
   .setColor('#00ff47')
-  .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
+.setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
   .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
    message.channel.sendEmbed(mariam);
    message.react("لعبة مريم")

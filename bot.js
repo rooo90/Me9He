@@ -551,7 +551,7 @@ const Sra7a = [
        ]
           client.on('message', message => {
 			  	var prefix = "M"
-        if (message.content.startsWith(prefix + 'صراحه')) {
+        if (message.content.startsWith(prefix + 'صراحة')) {
             if(!message.channel.guild) return message.reply('** :innocent: هذا الأمر بالسيرفرات لا تجي تزعجني:innocent:  **');
          var client= new Discord.RichEmbed()
          .setTitle("M Games")

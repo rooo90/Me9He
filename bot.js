@@ -567,7 +567,7 @@ message.channel.send('**عندك 15 ثانية الحق**').then(msg => {
           .catch(collected => { 
             message.channel.send(`:x: :stuck_out_tongue_winking_eye: **خطأ يا سبايك**`);
           })
-let points = JSON.parse(fs.readFileSync('./Points.json'
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
         })
     })
 }

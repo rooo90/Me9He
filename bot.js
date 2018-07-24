@@ -510,21 +510,7 @@ const zead = [
   });
 
 
- 
-			  	var prefix = "M"
-        if (message.content.startsWith(prefix + 'صراحة')) {
-            if(!message.channel.guild) return message.reply('** :innocent: هذا الأمر بالسيرفرات لا تجي تزعجني:innocent:  **');
-         var client= new Discord.RichEmbed()
-         .setTitle("M Games")
-         .setColor('#00ff47')
-         .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
-         .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
-                         .setTimestamp()
-       
-          message.channel.sendEmbed(client);
-          message.react("??")
-        }
-       });
+
 
 
 

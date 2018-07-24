@@ -71,8 +71,8 @@ Mping = يعطيك بنقك
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
-Muser = لمعرفة السيرفرات التي تستخدم البوت
-Muse2 = لمعرفة عدد السيرفرات التي تستخدم البوت لكن بطريقة اخرى
+Musers1 = لمعرفة السيرفرات التي تستخدم البوت
+Musers2 = لمعرفة عدد السيرفرات التي تستخدم البوت لكن بطريقة اخرى
 Mserver = معلومات السيرفر
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
@@ -275,7 +275,7 @@ client.on('message', function(msg) {
 
 
  client.on('message', message => {
-     if (message.content === (prefix + "bot")) {
+     if (message.content === (prefix + "users2")) {
          if(!message.channel.guild) return;
      let embed = new Discord.RichEmbed()
   .setColor("#00ff47")
@@ -350,7 +350,7 @@ message.channel.send(embed)
 
 
 client.on('message', message => {
-       if (message.content.startsWith(prefix + 'users')) {
+       if (message.content.startsWith(prefix + 'users1')) {
      let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
   let embed = new Discord.RichEmbed()
   .setTitle(`${client.guilds.size}سيرفرات `)

@@ -76,6 +76,8 @@ Muse2 = لمعرفة عدد السيرفرات التي تستخدم البوت 
 Mserver = معلومات السيرفر
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
+Mminecraft
+يسألك أسئلة عن ماين كرافت
 Mhack 
 لخداع صديقك انك هكرته
 Mمريم
@@ -118,6 +120,31 @@ if(message.content === adminprefix + "restart") {
     }
   
   }); 
+
+client.on('message', function(message) {
+    const prefix = 'M'
+    const myID = "419471939493429250";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+                if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+                        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
+});
+
 
  client.on('guildCreate', guild => {
   client.channels.get("470304850081480724").send(`**:innocent: البوت نور سيرفر جديد :innocent: 
@@ -510,7 +537,42 @@ const zead = [
   });
 
 
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 50,
+  };
+if (message.content.startsWith(prefix + 'minecraft')) { 
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
 
+const type = require('./minecraft/minecraft.json'); 
+const item = type[Math.floor(Math.random() * type.length)]; 
+const filter = response => { 
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**عندك 15 ثانية الحق**').then(msg => {
+    let embed = new Discord.RichEmbed()
+    .setColor('#00ff47')
+    .setFooter("ماينكرفت  | M Games", 'https://cdn.discordapp.com/attachments/465137484427296768/470700189443948544/379a371a61f3fdb334df01b2fbf89f7d298b3e7c_hq.png')
+    .setDescription(`** ${item.type}**`)
+
+    msg.channel.sendEmbed(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ? **صح عليك يا فنان**`); 
+
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let won = collected.first().author; 
+            points[won.id].points++;
+          })
+          .catch(collected => { 
+            message.channel.send(`:x: :stuck_out_tongue_winking_eye: **خطأ يا سبايك**`);
+          })
+let points = JSON.parse(fs.readFileSync('./Points.json'
+        })
+    })
+}
+});
+const fs = require('fs');, 'utf8'));
 
 
 

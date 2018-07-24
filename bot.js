@@ -369,9 +369,7 @@ client.on("message", function(message) {
     "محنة",
     "انيك",
     "خنيث",
-    "خرا",
-    ":middle_finger: ",
-    "خرى"
+    "خرا"
 
   ];
 

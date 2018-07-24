@@ -572,7 +572,7 @@ let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
     })
 }
 });
-const fs = require('fs');, 'utf8'));
+
 
 
 

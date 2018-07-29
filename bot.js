@@ -83,9 +83,7 @@ Mمريم
 Mعقاب
 لعبة عقاب
 ╚[❖══════❖]╝
-╔[❖══════❖]╗
-:innocent: بعض المميزات الجانبية:innocent: 
-:no_entry: مانع السب :no_entry: 
+╔[❖══════❖]╗ 
 البوت تحت التطوير........
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
@@ -361,23 +359,6 @@ client.on('message', message => {
 });
 
 
-client.on("message", function(message) {
-
-  const bannedwords = [
-    "زق",
-    "زب",
-    "محنة",
-    "انيك",
-    "خنيث",
-    "خرا"
-
-  ];
-
-  if(bannedwords.some(word => message.content.includes(word))) {
-    message.delete()
-    message.reply("ممنوع السب وأذكر الله");
-  };
-});
 
 
 

@@ -14,7 +14,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   console.log('╔[════════════════════════════════════]╗');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
   console.log('')
-  console.log('Informations :')
+  console.log('info :')
   console.log('')
   console.log(`servers! [ " ${client.guilds.size} " ]`);
   console.log(`Users! [ " ${client.users.size} " ]`);
@@ -51,7 +51,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 client.on("message", message => {
  if (message.content === prefix + "help") {
- message.channel.send(":white_check_mark: ")
+ message.channel.send(":ballot_box_with_check: Done! ")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)

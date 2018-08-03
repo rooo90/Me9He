@@ -5,26 +5,21 @@ const prefix = 'M'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
-  console.log('')
-  console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
+  console.log(`[Start Time] ${new Date()}`);
   console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
   console.log('╔[════════════════════════════════════]╗');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
   console.log('')
-  console.log('info :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('info:')
+  console.log(`servers! [" ${client.guilds.size} "]`);
+  console.log(`Users! [" ${client.users.size} "]`);
+  console.log(`channels! [" ${client.channels.size} "]`);
   console.log('╚[════════════════════════════════════]╝')
-  console.log('')
   console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
+  console.log('ARE YOU READY?')
+  console.log('!LETS GO BOT ONLINE!')
   console.log('╚[════════════]╝')
-  console.log('')
   console.log('')
 });
 
@@ -70,8 +65,10 @@ Mbc = يرسل رسالة للكل
 Minvite = لاعطائك رابط اضافة البوت
 Mbot = معلومات البوت
 Mping = يعطيك بنقك
+Mimage = صورة السيرفر
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
+Mreport = للتبليغ عن شخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
 Musers1 = لمعرفة السيرفرات التي تستخدم البوت
 Musers2 = لمعرفة عدد السيرفرات التي تستخدم البوت لكن بطريقة اخرى
@@ -144,12 +141,35 @@ client.on('message', function(message) {
 });
 
 
- client.on('guildCreate', guild => {
-  client.channels.get("470304850081480724").send(`**:innocent: البوت نور سيرفر جديد :innocent: 
-سيرفر: __${guild.name}__
-صاحب السيرفر: __${guild.owner}__**`)
-}); 
-      
+
+client.on('guildCreate', guild => {
+  client.channels.get("470304850081480724")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`:innocent:البوت نور سيرفر جديد:innocent:`)
+   .setDescription(`
+اسم السيرفر: **${guild.name}**
+صاحب السيرفر: **${guild.owner}**`)
+         .setColor("#00ff47")
+         .setFooter('M Games' , client.user.avatarURL)
+           client.channels.get("470304850081480724").send({embed});
+}
+
+);
+
+         
+client.on('guildDelete', guild => {
+  client.channels.get("Channel ID")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`:expressionless:ناس ما يفهمون الفن:expressionless:`)
+   .setDescription(`
+اسم السيرفر: **${guild.name}**
+صاحب السيرفر: **${guild.owner}**`)
+         .setColor("#ff0004")
+         .setFooter('M Games' , client.user.avatarURL)
+           client.channels.get("470304850081480724").send({embed});
+}
+
+);      
 
 client.on("message", message => {
       if (message.content === "Mping") {
@@ -178,6 +198,27 @@ client.on('message', message => {
       message.channel.sendEmbed(embed);
     }
 });
+
+
+
+client.on("message", message => {
+    const prefix = "M"
+              
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "image"){ 
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(#00ff47)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
 
 
 client.on('message', message => {
@@ -550,6 +591,36 @@ const embed = new Discord.RichEmbed()
 message.channel.sendEmbed(embed);
 }
 });
+
+
+client.on('message', message => {
+    var name1 = message.mentions.users.first();
+    var reason = message.content.split(' ').slice(2).join(' ');
+    if(message.content.startsWith(prefix + 'report')) {
+        if(message.author.bot) return;
+        if(!message.guild.channels.find('name', 'الابلاغات')) return message.channel.send('**نرجوا عمل روم باسم الابلاغات كي توصل الابلاغات له**').then(msg => msg.delete(5000));
+    if(!name1) return message.reply('**:innocent:منشن:innocent:**').then(msg => msg.delete(3000))
+        message.delete();
+    if(!reason) return message.reply('**:innocent:وش سوى؟:innocent:**').then(msg => msg.delete(3000))
+        message.delete();
+    var abod = new Discord.RichEmbed()
+    .setTitle(`**بلاغ** من قبل: ${message.author.tag}`)
+    .addField('**البلاغ:**', `${name1}`, true)
+    .addField('**بروم:**', `${message.channel.name}`, true)
+    .addField('**السبب:**', `${reason}`, true)
+    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+    .setTimestamp()
+        message.guild.channels.find('name', 'الابلاغات').sendEmbed(abod)
+    message.reply('**:sunglasses:بنأخذ حقك:sunglasses:**').then(msg => msg.delete(3000));
+    }
+});
+
+
+
+
+
+
+
 
 
 

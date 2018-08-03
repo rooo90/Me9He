@@ -67,6 +67,8 @@ Mbc = يرسل رسالة للكل
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
+Minvite = لاعطائك رابط اضافة البوت
+Mbot = معلومات البوت
 Mping = يعطيك بنقك
 Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
@@ -514,10 +516,40 @@ const zead = [
   });
 
 
+client.on('message', message => {
+    if (message.content.startsWith("Mbot")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('#00ff47')
+            .setTitle(':innocent:**__INFO OF ME__**:innocent:')
+            .addField(':rocket:**MY PING**:rocket:' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField(':inbox_tray:**RAM**:inbox_tray:', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField(':sunglasses:**SERVERS**:sunglasses:', [client.guilds.size], true)
+            .addField(':rose:**CHANNELS**:rose:' , `[ ${client.channels.size} ]` , true)
+            .addField(':hearts:**USERS**:hearts:' ,`[ ${client.users.size} ]` , true)
+            .addField(':crown:**MY NAME**:crown:' , `[ ${client.user.tag} ]` , true)
+            .addField(':id:**MY ID**:id:' , `[ ${client.user.id} ]` , true)
+                  .addField('**MY PREFIX**' , `[M]` , true)
+                  .addField('**My Language**' , `[JS]` , true)
+                  .setFooter('|-👑>XMGX <👑-|#7091')
+    })
+}
+});
 
 
-
-
+client.on('message' , message => {
+  if (message.author.bot) return;
+    if(message.content.startsWith (prefix  + 'invite')) {
+const embed = new Discord.RichEmbed()
+.setColor("#00ff47")
+.setAuthor(message.author.username, message.author.avatarURL)
+.setTitle('اضغط هنا')
+.setURL('https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot')
+message.channel.sendEmbed(embed);
+}
+});
 
 
 

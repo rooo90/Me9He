@@ -211,7 +211,7 @@ client.on("message", message => {
   
       .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
   .setAuthor(message.author.username, message.guild.iconrURL)
-    .setColor(#00ff47)
+    .setColor(`#00ff47`)
     .setImage(message.guild.iconURL)
     .setURL(message.guild.iconrURL)
                     .setTimestamp()

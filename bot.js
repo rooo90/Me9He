@@ -604,7 +604,7 @@ client.on('message', message => {
     if(!reason) return message.reply('**:innocent:وش سوى؟:innocent:**').then(msg => msg.delete(3000))
         message.delete();
     var abod = new Discord.RichEmbed()
-    .setTitle(`**بلاغ** من قبل: ${message.author.tag}`)
+    .setTitle(`بلاغ من قبل: ${message.author.tag}`)
     .addField('**المبلغ:**', `${name1}`, true)
     .addField('**بروم:**', `${message.channel.name}`, true)
     .addField('**البلاغ:**', `${reason}`, true)

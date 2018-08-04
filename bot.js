@@ -58,6 +58,7 @@ client.on("message", message => {
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :crown: اوامر ادارية:crown: 
+Mkick = لطرد عضو مع السبب
 Mbc = يرسل رسالة للكل
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
@@ -616,7 +617,42 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => {
+    var prefix = "M"
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "kick") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لديك البرمشن المطلوب**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لدي البرمشن المطلوب**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("**:innocent:منشن:innocent:**");
+  if(!reason) return message.reply ("**:innocent:سبب الطرد:innocent:**");
+  if (!message.guild.member(user)
+  .kickable) return message.reply("**الشخص أعلى من رتبتي يرجى رفع رتبتي**");
+
+  message.guild.member(user).kick();
+
+  const kickembed = new Discord.RichEmbed()
+  .setAuthor(`انطرد`, user.displayAvatarURL)
+  .setColor("#ff0005")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : kickembed
+  })
+}
+});
 
 
 

@@ -145,7 +145,7 @@ client.on('message', function(message) {
 client.on('guildCreate', guild => {
   client.channels.get("470304850081480724")
 const embed = new Discord.RichEmbed()
-   .setAuthor(`:innocent:البوت نور سيرفر جديد:innocent:`)
+   .setAuthor(`البوت نور سيرفر جديد`)
    .setDescription(`
 اسم السيرفر: **${guild.name}**
 صاحب السيرفر: **${guild.owner}**`)
@@ -160,7 +160,7 @@ const embed = new Discord.RichEmbed()
 client.on('guildDelete', guild => {
   client.channels.get("Channel ID")
 const embed = new Discord.RichEmbed()
-   .setAuthor(`:expressionless:ناس ما يفهمون الفن:expressionless:`)
+   .setAuthor(`ناس ما يفهمون الفن`)
    .setDescription(`
 اسم السيرفر: **${guild.name}**
 صاحب السيرفر: **${guild.owner}**`)

@@ -143,6 +143,26 @@ client.on('message', function(message) {
 });
 
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '475740739192487948').setName("『M");
+client.channels.find('id', '475740739192487948').setName("『M ");
+client.channels.find('id', '475740739192487948').setName("『M B");
+client.channels.find('id', '475740739192487948').setName("『M Bo");
+client.channels.find('id', '475740739192487948').setName("『M Bot");
+client.channels.find('id', '475740739192487948').setName("『M Bot ");
+client.channels.find('id', '475740739192487948').setName("『M Bot S");
+client.channels.find('id', '475740739192487948').setName("『M Bot Su");
+client.channels.find('id', '475740739192487948').setName("『M Bot Sup");
+client.channels.find('id', '475740739192487948').setName("『M Bot Supp");
+client.channels.find('id', '475740739192487948').setName("『M Bot Suppo");
+client.channels.find('id', '475740739192487948').setName("『M Bot Suppor");
+client.channels.find('id', '475740739192487948').setName("『M Bot Support");
+client.channels.find('id', '475740739192487948').setName("『M Bot Support』");
+  }, 3000);
+});
+
+
 
 client.on('guildCreate', guild => {
   client.channels.get("470304850081480724")
@@ -654,7 +674,6 @@ client.on('message', message => {
   })
 }
 });
-
 
 
 

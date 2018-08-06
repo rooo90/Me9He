@@ -146,19 +146,38 @@ client.on('message', function(message) {
 client.on("ready", async  => {
 setInterval(function(){
 client.channels.find('id', '475740739192487948').setName("『M");
-client.channels.find('id', '475740739192487948').setName("『M ");
-client.channels.find('id', '475740739192487948').setName("『M B");
-client.channels.find('id', '475740739192487948').setName("『M Bo");
-client.channels.find('id', '475740739192487948').setName("『M Bot");
-client.channels.find('id', '475740739192487948').setName("『M Bot ");
-client.channels.find('id', '475740739192487948').setName("『M Bot S");
-client.channels.find('id', '475740739192487948').setName("『M Bot Su");
-client.channels.find('id', '475740739192487948').setName("『M Bot Sup");
-client.channels.find('id', '475740739192487948').setName("『M Bot Supp");
-client.channels.find('id', '475740739192487948').setName("『M Bot Suppo");
-client.channels.find('id', '475740739192487948').setName("『M Bot Suppor");
-client.channels.find('id', '475740739192487948').setName("『M Bot Support");
-client.channels.find('id', '475740739192487948').setName("『M Bot Support』");
+client.channels.find('id', '475740739192487948').setName("『M G");
+client.channels.find('id', '475740739192487948').setName("『M Ga");
+client.channels.find('id', '475740739192487948').setName("『M Gam");
+client.channels.find('id', '475740739192487948').setName("『M Game");
+client.channels.find('id', '475740739192487948').setName("『M Games");
+client.channels.find('id', '475740739192487948').setName("『M Games S");
+client.channels.find('id', '475740739192487948').setName("『M Games Su");
+client.channels.find('id', '475740739192487948').setName("『M Games Sup");
+client.channels.find('id', '475740739192487948').setName("『M Games Supp");
+client.channels.find('id', '475740739192487948').setName("『M Games Suppo");
+client.channels.find('id', '475740739192487948').setName("『M Games Suppor");
+client.channels.find('id', '475740739192487948').setName("『M Games Support");
+client.channels.find('id', '475740739192487948').setName("『M Games Support』");
+  }, 3000);
+});
+
+
+
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '476085179430076416').setName("『L");
+client.channels.find('id', '476085179430076416').setName("『LE");
+client.channels.find('id', '476085179430076416').setName("『LEG");
+client.channels.find('id', '476085179430076416').setName("『LEGE");
+client.channels.find('id', '476085179430076416').setName("『LEGEN");
+client.channels.find('id', '476085179430076416').setName("『LEGEND");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS 4");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS 4 E");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS 4 EV");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS 4 EVE");
+client.channels.find('id', '476085179430076416').setName("『LEGENDS 4 EVER』");
   }, 3000);
 });
 

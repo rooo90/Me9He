@@ -24,23 +24,10 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 });
 
 
-  client.on('ready', function(){
-    var ms = 1000 ;
-    var setGame = [`Mh `,` Mhe`,`Mhel`,`Mhelp`];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/idk`);
-    }, ms);1000
-
-});  
+// playing
+client.on('ready', () => {                           
+client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp | Minvite`,'https://www.twitch.tv/v5bz');
+}); 
 
 
 
@@ -84,7 +71,12 @@ Mعقاب
 لعبة عقاب
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗ 
-البوت تحت التطوير........
+:sunglasses:الترحيب:sunglasses:
+سوي روم اسمه
+welcome 
+اوor
+『الترحيب』
+وبس
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 -invite the bot:
@@ -210,7 +202,62 @@ const embed = new Discord.RichEmbed()
            client.channels.get("470304850081480724").send({embed});
 }
 
-);      
+);   
+
+
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', '『الترحيب』');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('#00ff47')
+        .setThumbnail(memberavatar)
+        .addField(':crown: | اسمك:  ',`${member}`)
+        .addField(':pencil:|اطلق من دخل' , `منور السيرفر, ${member}`)
+        .addField('🆔 |ايديك:', "**[" + `${member.id}` + "]**" )
+                .addField(':arrow_down:|عضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter("Welcome")
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('#00ff47')
+        .setThumbnail(memberavatar)
+        .addField(':crown: | اسمك:  ',`${member}`)
+        .addField(':pencil:|اطلق من دخل' , `منور السيرفر, ${member}`)
+        .addField('🆔 |ايديك:', "**[" + `${member.id}` + "]**" )
+                .addField(':arrow_down:|عضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter("Welcome")
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+
+
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:hearts:منور السيرفر:hearts:
+:crown:اسمك:crown: : ${member}  
+:أنت العضو رقم:1234:1234: : ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
 
 client.on("message", message => {
       if (message.content === "Mping") {

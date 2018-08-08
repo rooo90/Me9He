@@ -382,7 +382,7 @@ client.on('message', function(msg) {
   .addField("** :rocket: Ping **" , Date.now() - message.createdTimestamp)
     .setTimestamp()
   message.channel.sendEmbed(embed);
-    }
+   }
 }); 
 
 

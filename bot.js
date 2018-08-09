@@ -59,7 +59,6 @@ Mmsg = لارسال رسالة للشخص
 Mreport = للتبليغ عن شخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
 Musers1 = لمعرفة السيرفرات التي تستخدم البوت
-Musers2 = لمعرفة عدد السيرفرات التي تستخدم البوت لكن بطريقة اخرى
 Mserver = معلومات السيرفر
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
@@ -371,19 +370,7 @@ client.on('message', function(msg) {
   });
 
 
- client.on('message', message => {
-     if (message.content === (prefix + "users2")) {
-         if(!message.channel.guild) return;
-     let embed = new Discord.RichEmbed()
-  .setColor("#00ff47")
-  .addField("** :white_check_mark: Servers: **" , client.guilds.size)
-  .addField("** :white_check_mark: Users: **" , client.users.size)
-  .addField("** :white_check_mark: Channels: **" , client.channels.size)
-  .addField("** :rocket: Ping **" , Date.now() - message.createdTimestamp)
-    .setTimestamp()
-  message.channel.sendEmbed(embed);
-   }
-}); 
+
 
 
 

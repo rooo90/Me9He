@@ -226,6 +226,40 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
 
+
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`:sob:راح ورح:sob:`)
+    .setDescription(`:hearts:...نراك قريبا:hearts:`)
+    .addField(':sweat:الباقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`Bye..`, '')
+
+var channel =member.guild.channels.find('name', 'welcome')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`:sob:راح ورح:sob:`)
+    .setDescription(`:hearts:...نراك قريبا:hearts:`)
+    .addField(':sweat:الباقي',`**[${member.guild.memberCount}]**`,true)
+    .setColor('RED')
+    .setFooter(`Bye..`, '')
+
+var channel =member.guild.channels.find('name', '『الترحيب』')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+
 client.on("message", message => {
       if (message.content === "Mping") {
       const embed = new Discord.RichEmbed()
@@ -289,19 +323,19 @@ return;
  if(!message.member.hasPermission('ADMINISTRATOR')) return;
           var bc = new Discord.RichEmbed()
           .setAuthor(message.author.username, message.author.avatarURL)
-          .addField(' The server', `${message.guild.name}`, true)
-          .addField(' who sended the messege ', `${message.author.username}!${message.author.discriminator}`, true)
-          .addField(' the messege ', args)
+          .addField(':diamond_shape_with_a_dot_inside:|السيرفر', `${message.guild.name}`, true)
+          .addField(':incoming_envelope:|المرسل', `${message.author.username}!${message.author.discriminator}`, true)
+          .addField(':page_facing_up:|الرسالة', args)
           .setThumbnail(message.guild.iconURL)
           .setColor('#00ff47')
           m.send(`${m}`,{embed: bc});
       });
       const Himo = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setTitle('✅| the messege is loading ')
+      .setTitle(':sleeping:|جاري التحميل')
       .addBlankField(true)
-      .addField('♨| i got sended to  ', message.guild.memberCount , true)
-      .addField('📝| the message ', args)
+      .addField(':ballot_box_with_check:|ارسلت الى', message.guild.memberCount , true)
+      .addField(':pencil:|الرسالة', args)
       .setColor('#00ff47')
       message.channel.sendEmbed(embed);
   }

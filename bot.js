@@ -273,18 +273,7 @@ client.on("guildMemberAdd", function(member) {
 });
 
 
-client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "welcome")
-        const embed = new Discord.RichEmbed()
-        .setColor('#00ff47')
-        .setAuthor(member.user.tag, member.user.avatarURL)
- .setDescription('***:hearts:منور أم أم السيرفر:hearts: ***')
-.setThumbnail(member.avatarURL)
-  .setImage('https://cdn.discordapp.com/attachments/463423281664622592/478294487320363023/1534098189902.png')
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-        
-});
+
 
 
 

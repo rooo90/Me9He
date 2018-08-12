@@ -26,7 +26,7 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp | Minvite`,'https://www.twitch.tv/v5bz');
+client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp | Minv`,'https://www.twitch.tv/v5bz');
 }); 
 
 
@@ -231,7 +231,7 @@ client.on('guildMemberRemove', member => {
     var embed = new Discord.RichEmbed()
     .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-    .setTitle(`:sob:راح ورح:sob:`)
+    .setTitle(`راح ورح`)
     .setDescription(`:hearts:...نراك قريبا:hearts:`)
     .addField(':sweat:الباقي',`**[ ${member.guild.memberCount} ]**`,true)
     .setColor('RED')
@@ -651,7 +651,7 @@ client.on('message', message => {
             .addField(':id:**MY ID**:id:' , `[ ${client.user.id} ]` , true)
                   .addField('**MY PREFIX**' , `[M]` , true)
                   .addField('**My Language**' , `[JS]` , true)
-                  .setFooter('|-👑>XMGX <👑-|#7091')
+                  .setFooter('Dev: ζ͜͡👑XMGX#3474')
     })
 }
 });
@@ -659,12 +659,12 @@ client.on('message', message => {
 
 client.on('message' , message => {
   if (message.author.bot) return;
-    if(message.content.startsWith (prefix  + 'invite')) {
+    if(message.content.startsWith (prefix  + 'inv')) {
 const embed = new Discord.RichEmbed()
 .setColor("#00ff47")
 .setAuthor(message.author.username, message.author.avatarURL)
 .setTitle('اضغط هنا')
-.setURL('https://discordapp.com/api/oauth2/authorize?client_id=463384497870864394&permissions=522304&scope=bot')
+.setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot')
 message.channel.sendEmbed(embed);
 }
 });

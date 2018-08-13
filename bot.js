@@ -645,7 +645,7 @@ client.on('message' , message => {
 const embed = new Discord.RichEmbed()
 .setColor("#00ff47")
 .setAuthor(message.author.username, message.author.avatarURL)
-.setTitle('اضغط هنا')
+.setTitle('HERE WE GO')
 .setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot')
 message.channel.sendEmbed(embed);
 }

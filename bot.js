@@ -113,28 +113,52 @@ if(message.content === adminprefix + "restart") {
   
   }); 
 
-client.on('message', function(message) {
-    const prefix = 'M'
-    const myID = "419471939493429250";
-    let args = message.content.split(" ").slice(1).join(" ");
-    if(message.content.startsWith(prefix + "setname")) {
-                if(message.author.id !== myID) return;
-            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
-        client.user.setUsername(args);
-        message.channel.send(':white_check_mark: Done!').then(msg => {
-           msg.delete(5000);
-          message.delete(5000);
-        });
+Client.on('message', message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "419471939493429250") return;
 
-    } else if(message.content.startsWith(prefix + "setavatar")) {
-                        if(message.author.id !== myID) return;
-        client.user.setAvatar(args);
-        message.channel.send(':white_check_mark: Done!').then(msg => {
-                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
-           msg.delete(5000);
-          message.delete(5000);
-        });
-    }
+  
+  if (message.content.startsWith(PREFIX + 'setwatch')) {
+  client.user.setActivity(argresult, {type: 'WATCHING'})
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Watch Now: **${argresult}`)
+} 
+
+ 
+  if (message.content.startsWith(PREFIX + 'setlis')) {
+  client.user.setActivity(argresult, {type: 'LISTENING'})
+     console.log('test' + argresult);
+    message.channel.sendMessage(`LISTENING Now: **${argresult}`)
+} 
+
+
+if (message.content.startsWith(PREFIX + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`Username Changed To **${argresult}**`)
+  return message.reply("You Can change the username 2 times per hour");
+} 
+
+if (message.content.startsWith(PREFIX + 'setavatar')) {
+  K
+Client.user.setAvatar(argresult);
+   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
+}
+
+if (message.content.startsWith(PREFIX + 'setstream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/KiNg66S");
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Streaming: **${argresult}`)
+} 
+if (message.content.startsWith(PREFIX + 'setplay')) {
+  client.user.setGame(argresult);
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Playing: **${argresult}`)
+} 
+
+
+
 });
 
 

@@ -82,6 +82,11 @@ welcome
 وبس
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
+:headphones:أوامر الأغاني:headphones:
+Mmusic
+كل الأوامر هنا
+╚[❖══════❖]╝
+╔[❖══════❖]╗
 -invite the bot:
 الرابط
 https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot
@@ -245,15 +250,7 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const queue = new Map();
 
-/*
-البكجآت
-npm install discord.js
-npm install ytdl-core
-npm install get-youtube-id
-npm install youtube-info
-npm install simple-youtube-api
-npm install queue
-*/
+
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;

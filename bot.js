@@ -448,7 +448,7 @@ function play(guild, song) {
 client.on("message", message => {
  if (message.content === `${prefix}music`) {
   const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-      .setColor("#678234")//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
+      .setColor("#00ff47")//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setDescription(`
 ${prefix}play ⇏ 🎵🎤لتشغيل أغنية برآبط أو بأسم🎤🎸
 ${prefix}skip ⇏ 🎼لتجآوز الأغنية الحآلية🎺

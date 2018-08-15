@@ -1065,6 +1065,11 @@ msg.channel.send(`${item.type}`).then(() => {
 }
 });
 
+
+
+
+
+
 let points = {}
 
 client.on('message', message => {

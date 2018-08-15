@@ -70,6 +70,8 @@ Mصراحة
 لعبة صراحة
 Mفكك
 لعبة فكك
+Mعواصم
+لعبة عواصم
 Mلوخيروك
 لعبة لو خيروك
 Mعقاب
@@ -1070,7 +1072,6 @@ msg.channel.send(`${item.type}`).then(() => {
 
 
 
-let points = {}
 
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {

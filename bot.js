@@ -68,6 +68,8 @@ Mمريم
 لعبة مريم
 Mصراحة
 لعبة صراحة
+Mفكك
+لعبة فكك
 Mلوخيروك
 لعبة لو خيروك
 Mعقاب
@@ -1056,6 +1058,7 @@ msg.channel.send(`${item.type}`).then(() => {
             userData.points++;
           })
           .catch(collected => {
+            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
           })
         })
     })

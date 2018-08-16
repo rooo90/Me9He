@@ -116,7 +116,7 @@ if(message.content === adminprefix + "restart") {
           message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
         console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
         client.destroy();
-        child_process.fork(__dirname + "bot.js");
+        child_process.fork(__dirname + "/bot.js");
         console.log(`تم اعادة تشغيل البوت`);
     }
   

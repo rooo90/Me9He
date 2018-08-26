@@ -248,7 +248,7 @@ client.on('message', message => {
     var prefix = "M";
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**الأمر بالسيرفرات بس**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**ماعندك الصلاحية المطلوبة**' );
+  if(!message.member.hasPermission('MOVE_MEMBERS')) return      message.channel.send('**ماعندك الصلاحية المطلوبة**' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
     let copy = "M Games";
     let request = `Requested By ${message.author.username}`;

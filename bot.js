@@ -50,7 +50,7 @@ Mbc = يرسل رسالة للكل
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
-Minvite = لاعطائك رابط اضافة البوت
+Minv = لاعطائك رابط اضافة البوت
 Mbot = معلومات البوت
 Mping = يعطيك بنقك
 Mimage = صورة السيرفر
@@ -110,6 +110,54 @@ message.author.sendEmbed(embed)
 }
 });
 
+client.on('message' , message => {
+  if (message.author.bot) return;
+    if(message.content.startsWith (prefix  + 'inv')) {
+const embed = new Discord.RichEmbed()
+.setColor("#00ff47")
+.setAuthor(message.author.username, message.author.avatarURL)
+.setTitle('HERE WE GO')
+.setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot')
+message.channel.sendEmbed(embed);
+}
+});
+
+
+client.on('message' , async (message) => {
+       if(message.content.startsWith(`<@${client.user.id}>`)) {
+              message.channel.startTyping()
+ let responses = [
+        'تحتاج مساعدة جرب Mhelp',
+        'هلا امرني',
+        'تحبني؟',
+         'طفشان عندك نكتة؟',
+         'تمنشن بوت؟',
+         'اعجبك البوت',
+         'لا تنسى تزور سيرفر السبورت',
+       'احبك ياخي'
+    ]
+    
+    // Fetch a random item from the array
+    let fetched = responses[Math.floor(Math.random() * responses.length)];
+   message.reply(fetched)
+   message.channel.stopTyping()
+       }
+  
+});
+
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('RSALH')){
+if(!message.author.id === '419471939493429250') return;
+message.channel.sendMessage('LOADING... |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+
 const child_process = require("child_process");
 const adminprefix = "M";
 const devs = ['419471939493429250'];
@@ -126,9 +174,40 @@ if(message.content === adminprefix + "restart") {
   
   }); 
 
-
-
-
+const developers = ["419471939493429250","419471939493429250",""]
+const adminprefix = "M";
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'sp')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'sw')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'sl')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});
 
 
 
@@ -161,6 +240,122 @@ const embed = new Discord.RichEmbed()
 }
 
 );   
+
+
+client.on("message", message => {
+    const prefix = "M"
+              
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "image"){ 
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(`This is ${message.guild.name} Photo!`)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(`#00ff47`)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
+
+
+client.on('message', message => {
+  if (message.guild) {
+ let embed = new Discord.RichEmbed()
+  let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc') {
+  if (!args[1]) {
+message.channel.send("**Mbc <message>**");
+return;
+}
+      message.guild.members.forEach(m => {
+ if(!message.member.hasPermission('ADMINISTRATOR')) return;
+          var bc = new Discord.RichEmbed()
+          .setAuthor(message.author.username, message.author.avatarURL)
+          .addField(':diamond_shape_with_a_dot_inside:|السيرفر', `${message.guild.name}`, true)
+          .addField(':incoming_envelope:|المرسل', `${message.author.username}!${message.author.discriminator}`, true)
+          .addField(':page_facing_up:|الرسالة', args)
+          .setThumbnail(message.guild.iconURL)
+          .setColor('#00ff47')
+          m.send(`${m}`,{embed: bc});
+      });
+      const Himo = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setTitle(':sleeping:|جاري التحميل')
+      .addBlankField(true)
+      .addField(':ballot_box_with_check:|ارسلت الى', message.guild.memberCount , true)
+      .addField(':pencil:|الرسالة', args)
+      .setColor('#00ff47')
+      message.channel.sendEmbed(embed);
+  }
+  } else {
+      return;
+  }
+});
+
+client.on('message', message => {
+    var prefix = "M"
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "kick") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لديك البرمشن المطلوب**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لدي البرمشن المطلوب**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("**:innocent:منشن:innocent:**");
+  if(!reason) return message.reply ("**:innocent:سبب الطرد:innocent:**");
+  if (!message.guild.member(user)
+  .kickable) return message.reply("**الشخص أعلى من رتبتي يرجى رفع رتبتي**");
+
+  message.guild.member(user).kick();
+
+  const kickembed = new Discord.RichEmbed()
+  .setAuthor(`انطرد`, user.displayAvatarURL)
+  .setColor("#ff0005")
+  .setTimestamp()
+  .addField("**المطرود:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**الي طرده:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : kickembed
+  })
+}
+});
+
+client.on('message', message => {
+    var name1 = message.mentions.users.first();
+    var reason = message.content.split(' ').slice(2).join(' ');
+    if(message.content.startsWith(prefix + 'report')) {
+        if(message.author.bot) return;
+        if(!message.guild.channels.find('name', 'الابلاغات')) return message.channel.send('**نرجوا عمل روم باسم الابلاغات كي توصل الابلاغات له**').then(msg => msg.delete(5000));
+    if(!name1) return message.reply('**:innocent:منشن:innocent:**').then(msg => msg.delete(3000))
+        message.delete();
+    if(!reason) return message.reply('**:innocent:وش سوى؟:innocent:**').then(msg => msg.delete(3000))
+        message.delete();
+    var abod = new Discord.RichEmbed()
+    .setTitle(`بلاغ من قبل: ${message.author.tag}`)
+    .addField('**المبلغ:**', `${name1}`, true)
+    .addField('**بروم:**', `${message.channel.name}`, true)
+    .addField('**البلاغ:**', `${reason}`, true)
+    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+    .setTimestamp()
+        message.guild.channels.find('name', 'الابلاغات').sendEmbed(abod)
+    message.reply('**:sunglasses:بنأخذ حقك:sunglasses:**').then(msg => msg.delete(3000));
+    }
+});
+
+
 
 
 client.on('guildMemberAdd', member => {
@@ -213,7 +408,7 @@ client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`:hearts:منور السيرفر:hearts:
 :crown:اسمك:crown: : ${member}  
-:أنت العضو رقم:1234:1234: : ${member.guild.memberCount} `) 
+أنت العضو رقم: : ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
 
@@ -524,80 +719,6 @@ client.on("message", message => {
       }
   });
 
-
-client.on('message', message => {
-  if (message.guild) {
- let embed = new Discord.RichEmbed()
-  let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-  if (!args[1]) {
-message.channel.send("**Mbc <message>**");
-return;
-}
-      message.guild.members.forEach(m => {
- if(!message.member.hasPermission('ADMINISTRATOR')) return;
-          var bc = new Discord.RichEmbed()
-          .setAuthor(message.author.username, message.author.avatarURL)
-          .addField(':diamond_shape_with_a_dot_inside:|السيرفر', `${message.guild.name}`, true)
-          .addField(':incoming_envelope:|المرسل', `${message.author.username}!${message.author.discriminator}`, true)
-          .addField(':page_facing_up:|الرسالة', args)
-          .setThumbnail(message.guild.iconURL)
-          .setColor('#00ff47')
-          m.send(`${m}`,{embed: bc});
-      });
-      const Himo = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setTitle(':sleeping:|جاري التحميل')
-      .addBlankField(true)
-      .addField(':ballot_box_with_check:|ارسلت الى', message.guild.memberCount , true)
-      .addField(':pencil:|الرسالة', args)
-      .setColor('#00ff47')
-      message.channel.sendEmbed(embed);
-  }
-  } else {
-      return;
-  }
-});
-
-
-
-client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('RSALH')){
-if(!message.author.id === '419471939493429250') return;
-message.channel.sendMessage('LOADING |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
-
-
-client.on('message' , async (message) => {
-       if(message.content.startsWith(`<@${client.user.id}>`)) {
-              message.channel.startTyping()
- let responses = [
-        'تحتاج مساعدة جرب Mhelp',
-        'هلا امرني',
-        'تحبني؟',
-         'طفشان عندك نكتة؟',
-         'تمنشن بوت؟',
-         'اعجبك البوت',
-         'لا تنسى تزور سيرفر السبورت',
-       'احبك ياخي'
-    ]
-    
-    // Fetch a random item from the array
-    let fetched = responses[Math.floor(Math.random() * responses.length)];
-   message.reply(fetched)
-   message.channel.stopTyping()
-       }
-  
-});
-
-
-
 client.on('message', function(msg) {
     const prefix = 'M'
     if(msg.content.startsWith (prefix  + 'server')) {
@@ -617,46 +738,6 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed});
     }
   });
-
-
-
-
-
-
-
-client.on('message', message => {
-    if (message.content.startsWith("Mhack")) {
-      if (message.author.bot) return
-           message.delete();
-             let args = message.content.split(' ').slice(1);
-                   let virusname = args.join(' ');
-                 if (virusname < 1) {
-                     return message.channel.send("``اكتب اسم الشخص الي تبي يتهكر``");
-                                     }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
-             setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
-             }, 1000)
-            setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓] 25%').setColor(0xFF0000)})
-             }, 2000)
-           setTimeout(function() {     
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 100%').setColor(0xFF0000)})
-             }, 3000)
-                setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
-             }, 4000)
-              setTimeout(function() {
-               m.delete()
-           }, 5000)
-             setTimeout(function() {
-               message.channel.send('تم تهكيرك')
-           }, 6000)
-           });
-         }
- });
-
-
 
 client.on('message', message => {
      if(!message.channel.guild) return;
@@ -680,8 +761,6 @@ message.channel.send(embed)
 
 });
 
-
-
 client.on('message', message => {
        if (message.content.startsWith(prefix + 'users1')) {
      let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
@@ -692,8 +771,6 @@ client.on('message', message => {
   message.channel.send(embed);
 }
 });
-
-
 
 
 
@@ -713,141 +790,6 @@ client.on('message', msg => {
       msg.reply(`**تم ارسال الرساله**`)
     }
 });
-
-
-const Za7f = [
-    "**صورة وجهك او رجلك او خشمك او يدك**.",
-    "**اصدر اي صوت يطلبه منك أخوياك**.",
-    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
-    "**روح الى اي قروب عندك في الواتس اب و اكتب اي شيء يطلبه منك الاعبين  الحد الاقصى 3 رسائل**.",
-    "**قول نكتة اذا و لازم احد الاعبين يضحك اذا محد ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
-    "**سمعنا صوتك و غن اي اغنية من اختيار الاعبين الي معك**.",
-    "**ذي المرة لك لا تعيدها**.",
-    "**قل لأخوياك الي عندك احبك واحد واحد**.",
-    "**صور اي شيء يطلبه منك الاعبين**.",
-    "**سو اي شي يطلبه منك الي عندك**.",
-    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
-    "**سو مشهد تمثيلي عن مصرية بتولد**.",
-    "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت الكف**.",
-    "**ذي المرة لك لا تعيدها**.",
-    "**رحمناك لا تعودها**.",
-    "**روح عند اي احد بالخاص و قول له انك تحبه و الخ**.",
-    "**اكتب في الشات اي شيء يطلبه منك الاعبين في الخاص**.",
-    "**تكلم مصري لدقيقة**.",
-    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
-    "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
-    "**غير اسمك الى اسم من اختيار الاعبين الي معك**.",
-    "**اتصل على امك و قول لها انك تحبها :heart:**.",
-    "**لا يوجد سؤال لك سامحتك :slight_smile:**.",
-    "**سوو قرعة والي يفوز عطه 1000 كريدت**.",
-    "**منشن الجميع وقل انا اكرهكم**.",
-    "**اعطي احد من الموجودين رتبة عالية**.",
-    "**روح لأي واحد خاص قل له احبك**.",
-    "**اعطي نفسك كف وخلينا نسمع الصوت**.",
-    "**حط صورتك واسمك بنت**.",
-    "**تكلم قصيمي اولاه لين يقولون لك اخوياك خلاص**.",
-    "**لا تتكلم ولا تكتب لين يسمحون لك اخوياك واذا نسوك مدري وش نسوي :joy: **.",
-    "**قول قصيدة **.",
-    "**تكلم سوداني لخمس دقايق**.",
-    "**اعطي اي واحد هدية**.",
-    "**اول شخص يجي ببالك قل له احبك**.",
-    "**سو مشهد تمثيلي عن اي شيء يطلبه منك الاعبين**.",
-    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
-    "**خل اخوك الصغير يعطيك اي عقاب**.",
-    "**اعطي اي واحد 2000 كريدت**.",
-    "**خذ عقابين :joy: **.",
-    "**اسم امك افتخر به**.",
-    "**خل الي معك يختارون عقاب لك**.",
-    "**رحمناك لا تعيدها**.",
-    "**عط اقرب واحد لك بوسة**.",
-    "**تحط صورتك صورة بنت واسمك ليوم كامل**.",
-    "** خل اي واحد يختار لك عقاب**.",
-    "**اكتب قصيدة وقولها**.",
-      "**المسامح كريم:innocent:**.",
-      "**خلاص سامحتك**.",
-      "** تكلم سعودي :flag_sa:**.",
-      "** اخوياك يختارون شخص تروح تقول له احبك**.",
-  
-]
-
-
- client.on('message', message => {
-   if (message.content.startsWith("Mعقاب")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
-  var embed = new Discord.RichEmbed()
-  .setColor('#00ff47')
-   .setThumbnail(message.author.avatarURL) 
- .addField('M Games' ,
-  `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
-  message.channel.sendEmbed(embed);
-    }
-});
-
-
-
-
-
-const zead = [
-     '*** انا اسمي مريم ***',
-     '*** مرحباَ ماهو اسمك ؟ ***',
-     `*** اهلا بك ! انا تائهه في هذا المكان  ***`,
-     '*** هل تود مساعدتي ؟ ***',
-     '*** لماذا هل انت قاسي القلب ؟ ***',
-     '*** انني اشفق عليك عليك يجب ان تطهر روحك وتحب الخير للجميع ***',
-     '*** ابتعد عني قليل انني متعبة ***',
-     '*** هل انت نادم على ماقلت ؟ ***',
-     '*** ابتعد عني قليل انني متعبة ***',
-     '*** هل انت نادم على ماقلت ؟ ***',
-     '*** هل تود مساعدتي ؟ ***',
-     '*** واو اشكرك انك شخصاَ رائع ! ***',
-     '*** ابحث معي عن منزلي لقد كان قريباَ من هنا ***',
-     '*** ولكن عندما حل الليل لم اعد ارى اي شيء ***',
-     '*** مذا تظن اين يوجد ؟ يمين او يسار ***',
-     '*** هيا اذاَ ***',
-     '*** اود ان اسئلك سؤال ونحن في الطريق ***',
-     '*** هل تراني فتاة لطيفة ام مخيفة ***',
-     '*** اشكرك !  ***',
-     '*** لقد وصلنا الى المنزل شكراَ جزيلَ انتطرني ثواني وسوف اعود ***',
-     '*** هل انت جاهز ؟ ***',
-     '*** لقد اخبرت والدي عنك وهم متحمسين لرؤيتك ***',
-     '*** هل تود ان تراهم الان ***',
-  '*** انا لست الحوت الازرق كما يدعون ***',
-     '*** انا لست كاذبة صدقني***',
-     '*** لماذا ارى في عينيك الخوف ؟ ***',
-     '*** انا مجرد فتاة لطيفة تحب اللعب مع الجميع ***',
-     '*** اعرف كل شيء يحدث اسمع ذالك بالراديو ***',
-     '*** سمعت ان البشر يقتلون من اجل المال فقط ***',
-     '*** لماذا لم تدخل الغرفة ؟ ***',
-     '*** ههههههههههههههههههه انت الان مسجون في هذه الغرفة ***',
-     '*** لن تخرج حتى اعود لك بعد قليل ***',
-     '*** المفتاح معك ! اكتب .مريم  ***',
-     '*** مفتاح احمر , هل حصلت عليه ؟ ***',
-     '*** ان لم تحصل عليه , اكتب .مريم مرة اخرى ***',
-     '*** مفتاح اسود . هل حصلت عليه ؟ ***',
-     '*** اين تريد ان تختبئ بسرعة قبل ان تعود ***',
-     '*** لقد عادت من جديد الى المنزل ***',
-     '*** لا تصدر اي صوت ! ***',
-     '*** مريم : لقد عدت ***',
-     '*** مريم : يا ايها المخادع اين انت ***',
-     '*** مريم : اعلم انك هنا في المنزل ***',
-     '*** مريم : ماذا تريد ان تسمع ***',
-     '*** مريم : اضغط على الرابط اهداء مني لك | https://www.youtube.com/channel/UCpjf9L0G7TalNYkbq13SqAQ ***',
-     '*** احد ما خرج من المنزل ***',
-     '*** انتظر الجزء الثاني ساعدنا وانشر البوت  ***'
-  ]
-   client.on('message', message => {
-	   	var prefix = "M"
-   if (message.content.startsWith(prefix + 'مريم')) {
-    var mariam= new Discord.RichEmbed()
-    .setTitle("M Games")
-    .setColor('#00ff47')
-    .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
-    .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
-     message.channel.sendEmbed(mariam);
-     message.react("??")
-    }
-  });
-
 
 client.on('message', message => {
     if (message.content.startsWith("Mbot")) {
@@ -870,81 +812,6 @@ client.on('message', message => {
     })
 }
 });
-
-
-client.on('message' , message => {
-  if (message.author.bot) return;
-    if(message.content.startsWith (prefix  + 'inv')) {
-const embed = new Discord.RichEmbed()
-.setColor("#00ff47")
-.setAuthor(message.author.username, message.author.avatarURL)
-.setTitle('HERE WE GO')
-.setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot')
-message.channel.sendEmbed(embed);
-}
-});
-
-
-client.on('message', message => {
-    var name1 = message.mentions.users.first();
-    var reason = message.content.split(' ').slice(2).join(' ');
-    if(message.content.startsWith(prefix + 'report')) {
-        if(message.author.bot) return;
-        if(!message.guild.channels.find('name', 'الابلاغات')) return message.channel.send('**نرجوا عمل روم باسم الابلاغات كي توصل الابلاغات له**').then(msg => msg.delete(5000));
-    if(!name1) return message.reply('**:innocent:منشن:innocent:**').then(msg => msg.delete(3000))
-        message.delete();
-    if(!reason) return message.reply('**:innocent:وش سوى؟:innocent:**').then(msg => msg.delete(3000))
-        message.delete();
-    var abod = new Discord.RichEmbed()
-    .setTitle(`بلاغ من قبل: ${message.author.tag}`)
-    .addField('**المبلغ:**', `${name1}`, true)
-    .addField('**بروم:**', `${message.channel.name}`, true)
-    .addField('**البلاغ:**', `${reason}`, true)
-    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
-    .setTimestamp()
-        message.guild.channels.find('name', 'الابلاغات').sendEmbed(abod)
-    message.reply('**:sunglasses:بنأخذ حقك:sunglasses:**').then(msg => msg.delete(3000));
-    }
-});
-
-
-client.on('message', message => {
-    var prefix = "M"
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لديك البرمشن المطلوب**");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لدي البرمشن المطلوب**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**:innocent:منشن:innocent:**");
-  if(!reason) return message.reply ("**:innocent:سبب الطرد:innocent:**");
-  if (!message.guild.member(user)
-  .kickable) return message.reply("**الشخص أعلى من رتبتي يرجى رفع رتبتي**");
-
-  message.guild.member(user).kick();
-
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`انطرد`, user.displayAvatarURL)
-  .setColor("#ff0005")
-  .setTimestamp()
-  .addField("**المطرود:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**الي طرده:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
-}
-});
-
 
 const Sra7a = [
     'صراحة|  صوتك حلوة؟',
@@ -1177,10 +1044,170 @@ msg.channel.send(`${item.type}`).then(() => {
 }
 });
 
+const Za7f = [
+    "**صورة وجهك او رجلك او خشمك او يدك**.",
+    "**اصدر اي صوت يطلبه منك أخوياك**.",
+    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
+    "**روح الى اي قروب عندك في الواتس اب و اكتب اي شيء يطلبه منك الاعبين  الحد الاقصى 3 رسائل**.",
+    "**قول نكتة اذا و لازم احد الاعبين يضحك اذا محد ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
+    "**سمعنا صوتك و غن اي اغنية من اختيار الاعبين الي معك**.",
+    "**ذي المرة لك لا تعيدها**.",
+    "**قل لأخوياك الي عندك احبك واحد واحد**.",
+    "**صور اي شيء يطلبه منك الاعبين**.",
+    "**سو اي شي يطلبه منك الي عندك**.",
+    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
+    "**سو مشهد تمثيلي عن مصرية بتولد**.",
+    "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت الكف**.",
+    "**ذي المرة لك لا تعيدها**.",
+    "**رحمناك لا تعودها**.",
+    "**روح عند اي احد بالخاص و قول له انك تحبه و الخ**.",
+    "**اكتب في الشات اي شيء يطلبه منك الاعبين في الخاص**.",
+    "**تكلم مصري لدقيقة**.",
+    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
+    "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
+    "**غير اسمك الى اسم من اختيار الاعبين الي معك**.",
+    "**اتصل على امك و قول لها انك تحبها :heart:**.",
+    "**لا يوجد سؤال لك سامحتك :slight_smile:**.",
+    "**سوو قرعة والي يفوز عطه 1000 كريدت**.",
+    "**منشن الجميع وقل انا اكرهكم**.",
+    "**اعطي احد من الموجودين رتبة عالية**.",
+    "**روح لأي واحد خاص قل له احبك**.",
+    "**اعطي نفسك كف وخلينا نسمع الصوت**.",
+    "**حط صورتك واسمك بنت**.",
+    "**تكلم قصيمي اولاه لين يقولون لك اخوياك خلاص**.",
+    "**لا تتكلم ولا تكتب لين يسمحون لك اخوياك واذا نسوك مدري وش نسوي :joy: **.",
+    "**قول قصيدة **.",
+    "**تكلم سوداني لخمس دقايق**.",
+    "**اعطي اي واحد هدية**.",
+    "**اول شخص يجي ببالك قل له احبك**.",
+    "**سو مشهد تمثيلي عن اي شيء يطلبه منك الاعبين**.",
+    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
+    "**خل اخوك الصغير يعطيك اي عقاب**.",
+    "**اعطي اي واحد 2000 كريدت**.",
+    "**خذ عقابين :joy: **.",
+    "**اسم امك افتخر به**.",
+    "**خل الي معك يختارون عقاب لك**.",
+    "**رحمناك لا تعيدها**.",
+    "**عط اقرب واحد لك بوسة**.",
+    "**تحط صورتك صورة بنت واسمك ليوم كامل**.",
+    "** خل اي واحد يختار لك عقاب**.",
+    "**اكتب قصيدة وقولها**.",
+      "**المسامح كريم:innocent:**.",
+      "**خلاص سامحتك**.",
+      "** تكلم سعودي :flag_sa:**.",
+      "** اخوياك يختارون شخص تروح تقول له احبك**.",
+  
+]
+
+
+ client.on('message', message => {
+   if (message.content.startsWith("Mعقاب")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+  var embed = new Discord.RichEmbed()
+  .setColor('#00ff47')
+   .setThumbnail(message.author.avatarURL) 
+ .addField('M Games' ,
+  `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
+  message.channel.sendEmbed(embed);
+    }
+});
 
 
 
 
+
+const zead = [
+     '*** انا اسمي مريم ***',
+     '*** مرحباَ ماهو اسمك ؟ ***',
+     `*** اهلا بك ! انا تائهه في هذا المكان  ***`,
+     '*** هل تود مساعدتي ؟ ***',
+     '*** لماذا هل انت قاسي القلب ؟ ***',
+     '*** انني اشفق عليك عليك يجب ان تطهر روحك وتحب الخير للجميع ***',
+     '*** ابتعد عني قليل انني متعبة ***',
+     '*** هل انت نادم على ماقلت ؟ ***',
+     '*** ابتعد عني قليل انني متعبة ***',
+     '*** هل انت نادم على ماقلت ؟ ***',
+     '*** هل تود مساعدتي ؟ ***',
+     '*** واو اشكرك انك شخصاَ رائع ! ***',
+     '*** ابحث معي عن منزلي لقد كان قريباَ من هنا ***',
+     '*** ولكن عندما حل الليل لم اعد ارى اي شيء ***',
+     '*** مذا تظن اين يوجد ؟ يمين او يسار ***',
+     '*** هيا اذاَ ***',
+     '*** اود ان اسئلك سؤال ونحن في الطريق ***',
+     '*** هل تراني فتاة لطيفة ام مخيفة ***',
+     '*** اشكرك !  ***',
+     '*** لقد وصلنا الى المنزل شكراَ جزيلَ انتطرني ثواني وسوف اعود ***',
+     '*** هل انت جاهز ؟ ***',
+     '*** لقد اخبرت والدي عنك وهم متحمسين لرؤيتك ***',
+     '*** هل تود ان تراهم الان ***',
+  '*** انا لست الحوت الازرق كما يدعون ***',
+     '*** انا لست كاذبة صدقني***',
+     '*** لماذا ارى في عينيك الخوف ؟ ***',
+     '*** انا مجرد فتاة لطيفة تحب اللعب مع الجميع ***',
+     '*** اعرف كل شيء يحدث اسمع ذالك بالراديو ***',
+     '*** سمعت ان البشر يقتلون من اجل المال فقط ***',
+     '*** لماذا لم تدخل الغرفة ؟ ***',
+     '*** ههههههههههههههههههه انت الان مسجون في هذه الغرفة ***',
+     '*** لن تخرج حتى اعود لك بعد قليل ***',
+     '*** المفتاح معك ! اكتب .مريم  ***',
+     '*** مفتاح احمر , هل حصلت عليه ؟ ***',
+     '*** ان لم تحصل عليه , اكتب .مريم مرة اخرى ***',
+     '*** مفتاح اسود . هل حصلت عليه ؟ ***',
+     '*** اين تريد ان تختبئ بسرعة قبل ان تعود ***',
+     '*** لقد عادت من جديد الى المنزل ***',
+     '*** لا تصدر اي صوت ! ***',
+     '*** مريم : لقد عدت ***',
+     '*** مريم : يا ايها المخادع اين انت ***',
+     '*** مريم : اعلم انك هنا في المنزل ***',
+     '*** مريم : ماذا تريد ان تسمع ***',
+     '*** مريم : اضغط على الرابط اهداء مني لك | https://www.youtube.com/channel/UCpjf9L0G7TalNYkbq13SqAQ ***',
+     '*** احد ما خرج من المنزل ***',
+     '*** انتظر الجزء الثاني ساعدنا وانشر البوت  ***'
+  ]
+   client.on('message', message => {
+	   	var prefix = "M"
+   if (message.content.startsWith(prefix + 'مريم')) {
+    var mariam= new Discord.RichEmbed()
+    .setTitle("M Games")
+    .setColor('#00ff47')
+    .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
+    .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
+     message.channel.sendEmbed(mariam);
+     message.react("??")
+    }
+  });
+
+client.on('message', message => {
+    if (message.content.startsWith("Mhack")) {
+      if (message.author.bot) return
+           message.delete();
+             let args = message.content.split(' ').slice(1);
+                   let virusname = args.join(' ');
+                 if (virusname < 1) {
+                     return message.channel.send("``اكتب اسم الشخص الي تبي يتهكر``");
+                                     }
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
+             }, 1000)
+            setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓] 25%').setColor(0xFF0000)})
+             }, 2000)
+           setTimeout(function() {     
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 100%').setColor(0xFF0000)})
+             }, 3000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
+             }, 4000)
+              setTimeout(function() {
+               m.delete()
+           }, 5000)
+             setTimeout(function() {
+               message.channel.send('تم تهكيرك')
+           }, 6000)
+           });
+         }
+ });
 
 
 

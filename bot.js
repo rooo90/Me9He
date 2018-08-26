@@ -174,7 +174,7 @@ if(message.content === adminprefix + "restart") {
   
   }); 
 
-const developers = ["419471939493429250","419471939493429250",""]
+const devs = ['419471939493429250'];
 const adminprefix = "M";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');

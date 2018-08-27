@@ -68,13 +68,13 @@ Mمريم
 لعبة مريم
 Mصراحة
 لعبة صراحة
-Mماينكرافت
+Mmine
 اسئلة ماين كرافتية
-Mفكك
+Mfkk
 لعبة فكك
-Mأعلام
+Ma3lam
 يعطيك علم وانت احزر وش هو
-Mعواصم
+M3wasm
 لعبة عواصم
 Mلوخيروك
 لعبة لو خيروك
@@ -919,7 +919,7 @@ client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
-if (message.content.startsWith(prefix + 'فكك')) {
+if (message.content.startsWith(prefix + 'fkk')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
 const type = require('./Games/fkk.json');
@@ -957,7 +957,7 @@ client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
-if (message.content.startsWith(prefix + 'عواصم')) {
+if (message.content.startsWith(prefix + '3wasm')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
 const type = require('./Games/3w.json');
@@ -992,7 +992,7 @@ client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
-if (message.content.startsWith(prefix + 'ماينكرافت')) {
+if (message.content.startsWith(prefix + 'mine')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
 const type = require('./Games/mine.json');
@@ -1025,7 +1025,7 @@ client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
-if (message.content.startsWith(prefix + 'أعلام')) {
+if (message.content.startsWith(prefix + 'a3lam')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
 const type = require('./Games/a3lam.json');

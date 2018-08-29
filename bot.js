@@ -156,7 +156,8 @@ client.on('message', function(message) {
             .setTitle('نشوف وش يقولون')
             .setThumbnail(`${message.author.avatarURL}`)
             .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-            .setFooter(`الي ارسل (@${message.author.tag})  |  (${message.author.id})`)
+            .setFooter(`المرسل
+[@${message.author.tag}]`)
         client.channels.get("484430320834445312").send({ embed: norElden });
     }
 });

@@ -147,6 +147,20 @@ client.on('message' , async (message) => {
   
 });
 
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var norElden = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle('نشوف وش يقولون')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`الي ارسل (@${message.author.tag})  |  (${message.author.id})`)
+        client.channels.get("484430320834445312").send({ embed: norElden });
+    }
+});
+
 
 client.on('message', message => {
     if(!message.channel.guild) return;
@@ -807,16 +821,16 @@ const perfix = 'M';
 client.on('message', msg => {
  if (msg.content.startsWith(prefix + 'msg')) {
       let args = msg.content.split(' ').slice(1)
-      if (!args[0]) return msg.reply(`**منشن الشخص اولا**`)
-      if (!args[1]) return msg.reply(`**ما هي الرساله المطلوب ارسالها**`)
+      if (!args[0]) return msg.reply(`**منشن ._.**`)
+      if (!args[1]) return msg.reply(`**ترسل رسالة فاضية؟._.**`)
       let norElden = msg.mentions.members.first()
-      if (!norElden) return msg.reply(`**يجب تحديد الشخص**`)
+      if (!norElden) return msg.reply(`**حدد ياخي._.**`)
       let norEldenEmbed = new Discord.RichEmbed()
-      .setTitle(`**رسالة جديده لك من شخص ما**`)
+      .setTitle(`**رسالة جديدة من من؟**`)
       .setDescription(args.join(" "))
 
       client.users.get(`${norElden.id}`).send(norEldenEmbed)
-      msg.reply(`**تم ارسال الرساله**`)
+      msg.reply(`**تمت المهمة بنجاح**`)
     }
 });
 

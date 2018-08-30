@@ -9,12 +9,12 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   console.log(`[Start Time] ${new Date()}`);
   console.log('╚[═════════════════════════════════════════════════════════════════]╝')
   console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log(`Logged in as [${client.user.username}]`);
   console.log('')
   console.log('info:')
-  console.log(`servers! [" ${client.guilds.size} "]`);
-  console.log(`Users! [" ${client.users.size} "]`);
-  console.log(`channels! [" ${client.channels.size} "]`);
+  console.log(`Servers! ["${client.guilds.size}"]`);
+  console.log(`Users! ["${client.users.size}"]`);
+  console.log(`Channels! ["${client.channels.size}"]`);
   console.log('╚[════════════════════════════════════]╝')
   console.log('╔[════════════]╗')
   console.log('ARE YOU READY?')

@@ -945,7 +945,18 @@ const secre = [
     }
 });
 
-
+let points = JSON.parse(fs.readFileSync('Points.json', 'utf8'));
+client.on('message', message => {
+    if (!points[message.author.id]) points[message.author.id] = {points : 0}
+    if (message.content == 'نقاطي'){
+        var embed = new RichEmbed()
+        .setAuthor(message.author.username,message.author.avatarURL)
+        .addField(`نقاطك : ${points[message.author.id].points}`,'Your Points',   true)
+        .setColor('RANDOM')
+        .setFooter('العاب وبس', client.user.avatarURL);
+        message.channel.sendEmbed(embed)
+    };
+	
 
 
 let points = {}

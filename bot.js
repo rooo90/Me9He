@@ -950,8 +950,6 @@ const secre = [
 
 let points = {}
 
-const fs = require("fs");
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 50,
@@ -985,8 +983,7 @@ msg.channel.send(`${item.type}`).then(() => {
 });
 
 
-const fs = require("fs");
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
+
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 50,
@@ -1023,8 +1020,6 @@ msg.channel.send(`${item.type}`).then(() => {
 
 
 
-const fs = require("fs");
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 50,
@@ -1059,9 +1054,6 @@ msg.channel.send(`${item.type}`).then(() => {
 
 
 
-
-const fs = require("fs");
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 50,
@@ -1094,8 +1086,7 @@ msg.channel.send(`${item.type}`).then(() => {
 }
 });
 
-const fs = require("fs");
-let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
+
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 50,

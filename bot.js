@@ -950,9 +950,11 @@ const secre = [
 
 let points = {}
 
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
+    points: 50,
   };
 if (message.content.startsWith(prefix + 'fkk')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
@@ -983,9 +985,11 @@ msg.channel.send(`${item.type}`).then(() => {
 });
 
 
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
+    points: 50,
   };
 if (message.content.startsWith(prefix + 'لغز')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
@@ -1019,9 +1023,11 @@ msg.channel.send(`${item.type}`).then(() => {
 
 
 
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
+    points: 50,
   };
 if (message.content.startsWith(prefix + '3wasm')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
@@ -1054,9 +1060,11 @@ msg.channel.send(`${item.type}`).then(() => {
 
 
 
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
+    points: 50,
   };
 if (message.content.startsWith(prefix + 'mine')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
@@ -1086,10 +1094,11 @@ msg.channel.send(`${item.type}`).then(() => {
 }
 });
 
-
+const fs = require("fs");
+let points = JSON.parse(fs.readFileSync('./Points.json', 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
+    points: 50,
   };
 if (message.content.startsWith(prefix + 'a3lam')) {
     if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));

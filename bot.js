@@ -807,16 +807,7 @@ message.channel.send(embed)
 
 });
 
-client.on('message', message => {
-       if (message.content.startsWith(prefix + 'users')) {
-     let msg =  client.guilds.map(guild => `[${client.users.size}] المستخدمين`).join('\n');
-  let embed = new Discord.RichEmbed()
-  .setTitle(`[${client.guilds.size}] السيرفرات`)
-  .setDescription(`${msg}`)
-  .setColor("#00ff47");
-  message.channel.send(embed);
-}
-});
+
 
 
 

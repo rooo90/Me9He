@@ -76,6 +76,8 @@ Mfkk
 لعبة فكك
 Mلغز
 يعطيك لغز والذكي يحله
+Mxo
+لعبة xo
 Ma3lam
 يعطيك علم وانت احزر وش هو
 M3wasm
@@ -1333,8 +1335,8 @@ const { shuffle, list, verify } = require('./Games/xo.js');
 const TictacSet = new Set();
 
 client.on('message', async msg => {
-    var p = "."
-  if(msg.content.startsWith(p + "tic")) {
+    var p = "M"
+  if(msg.content.startsWith(p + "xo")) {
    let args = msg.content.split(' ').slice(1).join(' ');
                         let user;
         if (msg.mentions.users.size) { user = msg.mentions.users.first(); }

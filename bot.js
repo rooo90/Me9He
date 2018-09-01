@@ -828,6 +828,23 @@ client.on('message', msg => {
     }
 });
 
+
+client.on('message', message => {
+    if (message.content.startsWith("Musers")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('#00ff47')
+            .setTitle('USERS & SERVERS')
+                  .addField('**SERVERS**:crown:' , `[${client.guilds.size}]` , true)
+                  .addField('**USERS**:hearts:' , `[${client.users.size}]` , true)
+                  .setFooter('THX FOR ALL')
+    })
+}
+});
+
+
 client.on('message', message => {
     if (message.content.startsWith("Mbot")) {
     message.channel.send({

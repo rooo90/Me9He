@@ -1382,7 +1382,7 @@ client.on('message', async msg => {
                                         await msg.channel.send('أنتهى الوقت المرة الجاية العب بشكل أسرع');
                                         userTurn = !userTurn;
                                         continue;
-                                }*/
+                                }
                                 const choice = turn.first().content;
                                 sides[Number.parseInt(choice, 10)] = sign;
                                 taken.push(choice);

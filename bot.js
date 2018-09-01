@@ -1343,11 +1343,11 @@ client.on('message', async msg => {
         else if (args[0]) { user = await msg.guild.fetchMember(args[0]);
         if (user) { user = user.user; } }
         if (!user) return msg.reply('You must mention someone or give their id'); 
-                if (user.bot) return msg.reply('البوتات ماتلعب مثل الناس');
-                //if (user.id === msg.author.id) return msg.reply('You may not play against yourself.');
+                if (user.bot) return msg.reply('._.البوتات ماتلعب مثل الناس');
+                if (user.id === msg.author.id) return msg.reply('مايصلح تلعب مع نفسك يا نفسية ._.');
                 TictacSet.add(msg.channel.id);
                 try {
-                        await msg.channel.send(`${user}, do you accept this challenge?`);
+                        await msg.channel.send(`${user}, تقبل التحدي؟ y or n`);
                         const verification = await verify(msg.channel, user);
                         if (!verification) {
                                 TictacSet.delete(msg.channel.id);
@@ -1362,7 +1362,7 @@ client.on('message', async msg => {
                                 const pUser = userTurn ? msg.author : user;
                                 const sign = userTurn ? '❎' : '🅾';
                                 await msg.channel.send('\n' + `
-                                        ${pUser}, دورك
+                                        ${pUser}, دورك أكتب رقم المكان
                                         =============
                                         ${sides[0]}${sides[1]}${sides[2]}
                                         ${sides[3]}${sides[4]}${sides[5]}
@@ -1377,9 +1377,9 @@ client.on('message', async msg => {
                                         max: 1,
                                         time: 30000
                                 });
-                                /*
+                               
                                 if (!turn.size) {
-                                        await msg.channel.send('Sorry, time is up!');
+                                        await msg.channel.send('أنتهى الوقت المرة الجاية العب بشكل أسرع');
                                         userTurn = !userTurn;
                                         continue;
                                 }*/

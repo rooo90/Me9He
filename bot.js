@@ -50,7 +50,7 @@ Mbc = يرسل رسالة للكل
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
-Minv = لاعطائك رابط اضافة البوت
+**Minv = لاعطائك رابط اضافة البوت
 Mbot = معلومات البوت
 Mping = يعطيك بنقك
 Mimage = صورة السيرفر
@@ -58,8 +58,8 @@ Mavatar = يعطيك صورتك أو صورة الي تمنشنه
 Mmsg = لارسال رسالة للشخص
 Mreport = للتبليغ عن شخص
 Mallbots = لمعرفة كل البوتات الي بالسيرفر
-Musers1 = لمعرفة السيرفرات التي تستخدم البوت
-Mserver = معلومات السيرفر
+Musers = لمعرفة السيرفرات ومستخدمين البوت
+Mserver = معلومات السيرفر**
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
 **Mhack 
@@ -808,10 +808,10 @@ message.channel.send(embed)
 });
 
 client.on('message', message => {
-       if (message.content.startsWith(prefix + 'users1')) {
-     let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
+       if (message.content.startsWith(prefix + 'users')) {
+     let msg =  client.guilds.map(guild => `[${client.users.size}] المستخدمين`).join('\n');
   let embed = new Discord.RichEmbed()
-  .setTitle(`${client.guilds.size}سيرفرات `)
+  .setTitle(`[${client.guilds.size}] السيرفرات`)
   .setDescription(`${msg}`)
   .setColor("#00ff47");
   message.channel.send(embed);

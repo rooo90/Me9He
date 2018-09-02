@@ -1402,7 +1402,7 @@ client.on('message', async msg => {
                         }
                         TictacSet.delete(msg.channel.id);
                 
-                        return msg.channel.send(winner ? `مبرووك, ${winner}!` : 'المرة الجاية ان شاء الله');
+                        return msg.channel.send(winner ? `مبرووك, ${winner}!` : 'GG مره اخرى ان شاء الله');
                 } catch (err) {
                         TictacSet.delete(msg.channel.id);
                         throw err;

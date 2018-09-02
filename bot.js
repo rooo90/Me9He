@@ -103,7 +103,7 @@ Mmusic
 ╔[❖══════❖]╗
 -invite the bot:
 الرابط
-https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot
+https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=3401794&scope=bot
 
 -Support server:
 https://discord.gg/Y2KaX9g.
@@ -123,7 +123,7 @@ const embed = new Discord.RichEmbed()
 .setColor("#00ff47")
 .setAuthor(message.author.username, message.author.avatarURL)
 .setTitle('HERE WE GO')
-.setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=522306&scope=bot')
+.setURL('https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=3401794&scope=bot')
 message.channel.sendEmbed(embed);
 }
 });

@@ -40,51 +40,52 @@ client.on("message", message => {
       .setDescription(`
 ** Bot ${client.user.username} Commands **
 ╔[❖══════❖]╗
--   شكرا لأستخدام البوت 
--   By XMGX 
+شكرا لأستخدام البوت 
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :crown: اوامر ادارية:crown: 
-Mkick = لطرد عضو مع السبب
-Mbc = يرسل رسالة للكل
+❖Mbc = يرسل رسالة للكل
+❖Mkick = لطرد عضو مع السبب
+❖Mmutech = لتقفيل الشات محد يقتب به
+❖Munmutech = لفتح الشات
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗
 :earth_africa: أوامر عامة:earth_asia: 
-**Minv = لاعطائك رابط اضافة البوت
-Mbot = معلومات البوت
-Mping = يعطيك بنقك
-Mimage = صورة السيرفر
-Mavatar = يعطيك صورتك أو صورة الي تمنشنه
-Mmsg = لارسال رسالة للشخص
-Mreport = للتبليغ عن شخص
-Mallbots = لمعرفة كل البوتات الي بالسيرفر
-Musers = لمعرفة السيرفرات ومستخدمين البوت
-Mserver = معلومات السيرفر**
+**❖Minv = لاعطائك رابط اضافة البوت
+❖Mbot = معلومات البوت
+❖Mping = يعطيك بنقك
+❖Mimage = صورة السيرفر
+❖Mavatar = يعطيك صورتك أو صورة الي تمنشنه
+❖Mmsg = لارسال رسالة للشخص
+❖Mreport = للتبليغ عن شخص
+❖Mallbots = لمعرفة كل البوتات الي بالسيرفر
+❖Musers = لمعرفة السيرفرات ومستخدمين البوت
+❖Mserver = معلومات السيرفر**
 ╚[❖══════❖]╝
 :video_game:الألعاب:video_game: 
-**Mhack 
+**❖Mhack 
 لخداع صديقك انك هكرته
-Mمريم
+❖Mمريم
 لعبة مريم
-Mصراحة
+❖Mصراحة
 لعبة صراحة
-Mmine
+❖Mmine
 اسئلة ماين كرافتية
-MFort
+❖MFort
 اسئلة عن فورت نايت
-Mfkk
+❖Mfkk
 لعبة فكك
-Mلغز
+❖Mلغز
 يعطيك لغز والذكي يحله
-Mxo
+❖Mxo
 لعبة xo
-Ma3lam
+❖Ma3lam
 يعطيك علم وانت احزر وش هو
-M3wasm
+❖M3wasm
 لعبة عواصم
-Mلوخيروك
+❖Mلوخيروك
 لعبة لو خيروك
-Mعقاب
+❖Mعقاب
 لعبة عقاب**
 ╚[❖══════❖]╝
 ╔[❖══════❖]╗ 
@@ -322,6 +323,36 @@ setTimeout(() => {
 
 
 client.on('message', message => {
+    if (message.content === "Mmutech") {
+                        if(!message.channel.guild) return message.reply('**الأمر ذا بس للسيرفرات._.**');
+
+if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('**ما عندك صلاحيات._.**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply(":heavy_check_mark:Done!")
+           });
+             }
+
+if (message.content === "Munmutech") {
+    if(!message.channel.guild) return message.reply('**الأمر ذا بس للسيرفرات._.**');
+
+if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('**ما عندك صلاحيات._.**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply(":heavy_check_mark:Done!")
+           });
+             }
+
+
+
+});
+
+
+client.on('message', message => {
     var prefix = "M"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -332,7 +363,7 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return message.reply('**الأمر ذا بس للسيرفرات ._.**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لديك البرمشن المطلوب**");
   if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**ليس لدي البرمشن المطلوب**");
@@ -963,174 +994,166 @@ const secre = [
 
 let points = {}
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'fkk')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
-
-const type = require('./Games/fkk.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
+                client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + 'fkk')) {
+                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
+                  
+                  const type = require('./Games/fkk.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
+                            })
+                      })
+                    })
+                  }
+                  });
 
 
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'لغز')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
 
-const type = require('./Games/l3s.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
+                client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + 'لغز')) {
+                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
+                  
+                  const type = require('./Games/l3s.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
+                            })
+                      })
+                    })
+                  }
+                  });
 
 
 
 
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + '3wasm')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
-
-const type = require('./Games/3w.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
+                client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + '3wasm')) {
+                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
+                  
+                  const type = require('./Games/3w.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
+                            })
+                      })
+                    })
+                  }
+                  });
 
 
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'mine')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
-
-const type = require('./Games/mine.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
+                client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + 'mine')) {
+                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
+                  
+                  const type = require('./Games/mine.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
+                            })
+                      })
+                    })
+                  }
+                  });
 
 
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 50,
-  };
-if (message.content.startsWith(prefix + 'a3lam')) {
-    if(!message.channel.guild) return message.reply('**لا تلعب عندي العب بالسيرفرات**').then(m => m.delete(3000));
+                client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + 'a3lam')) {
+                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
+                  
+                  const type = require('./Games/a3lam.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
+                            })
+                      })
+                    })
+                  }
+                  });
 
-const type = require('./Games/a3lam.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-
-            
-msg.channel.send(`${item.type}`).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-        message.channel.send(`${collected.first().author} ✅ أصلي عليك`);
-            let points = {}
-            let userData = points[message.author.id];
-            let userdata = require('./Points.json');
-            userData.points++;
-          })
-          .catch(collected => {
-            message.channel.send(`:pensive:خلص الوقت للأسف:pensive:`);
-          })
-        })
-    })
-}
-});
 
 
                 client.on('message', message => {
@@ -1162,6 +1185,7 @@ msg.channel.send(`${item.type}`).then(() => {
                     })
                   }
                   });
+
 
 
 const Za7f = [

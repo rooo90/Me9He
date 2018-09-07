@@ -401,7 +401,7 @@ client.on('message', message => {
         message.delete();
     var abod = new Discord.RichEmbed()
     .setTitle(`بلاغ من قبل: ${message.author.tag}`)
-    .addField('**المبلغ:**', `${name1}`, true)
+    .addField('**المجرم:**', `${name1}`, true)
     .addField('**بروم:**', `${message.channel.name}`, true)
     .addField('**البلاغ:**', `${reason}`, true)
     .setFooter(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
@@ -787,7 +787,7 @@ client.on("message", message => {
       if(message.content === prefix + "image"){ 
           const embed = new Discord.RichEmbed()
   
-      .setTitle(`This is ${message.guild.name} Photo!`)
+      .setTitle(`صورة السيرفر`)
   .setAuthor(message.author.username, message.guild.iconrURL)
     .setColor(`#00ff47`)
     .setImage(message.guild.iconURL)
@@ -804,16 +804,16 @@ client.on('message', function(msg) {
       let embed = new Discord.RichEmbed()
       .setColor('#00ff47')
       .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      .setTitle(`**معلومات السيرفر**`)
+      .addField('🌐**__دولة السيرفر__**',`『** __${msg.guild.region}__ **』`,true)
+      .addField(':star:** __عدد الرتب__**',`『** __${msg.guild.roles.size}__ **』`,true)
+      .addField(':black_heart:**__ عدد الاعضاء__**',`『** __${msg.guild.memberCount}__ **』`,true)
+      .addField(':green_heart:**__ عدد الاعضاء الاونلاين__**',`『** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **』`,true)
+      .addField('📝**__ الرومات الكتابية__**',`『** __${msg.guild.channels.filter(m => m.type === 'text').size}__** 』`,true)
+      .addField('🎤**__ رومات الصوت__**',`『** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **』`,true)
+      .addField('👑**__ الأونـر__**',`**『${msg.guild.owner}』**`,true)
+      .addField('🆔**__ ايدي السيرفر__**',`**『${msg.guild.id}』**`,true)
+      .addField(':calendar_spiral:**__ صنع السيرفر في__**',msg.guild.createdAt.toLocaleString())
       msg.channel.send({embed:embed});
     }
   });
@@ -829,7 +829,7 @@ var prefix = "M";
         const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
           const embed = new Discord.RichEmbed()
           .setAuthor(message.author.tag, message.author.avatarURL)
-          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+          .setDescription(`**تم ايجاد ${message.guild.members.filter(m=>m.user.bot).size} في هذا السيرفر**
 ${botssize.join('\n')}`)
 .setFooter(client.user.username, client.user.avatarURL)
 .setTimestamp();
@@ -886,16 +886,13 @@ client.on('message', message => {
             .setThumbnail(client.user.avatarURL)
             .setColor('#00ff47')
             .setTitle(':innocent:**__INFO OF ME__**:innocent:')
-            .addField(':rocket:**MY PING**:rocket:' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField(':inbox_tray:**RAM**:inbox_tray:', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
-            .addField(':sunglasses:**SERVERS**:sunglasses:', [client.guilds.size], true)
-            .addField(':rose:**CHANNELS**:rose:' , `[ ${client.channels.size} ]` , true)
-            .addField(':hearts:**USERS**:hearts:' ,`[ ${client.users.size} ]` , true)
-            .addField(':crown:**MY NAME**:crown:' , `[ ${client.user.tag} ]` , true)
-            .addField(':id:**MY ID**:id:' , `[ ${client.user.id} ]` , true)
-                  .addField('**MY PREFIX**' , `[M]` , true)
-                  .addField('**My Language**' , `[JS]` , true)
-                  .setFooter('Dev: ζ͜͡👑XMGX#3474')
+            .addField('**MY PING**:rocket:' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('**RAM**:inbox_tray:', `『${(process.memoryUsage().rss / 1048576).toFixed()}MB』`, true)
+            .addField('**MY NAME**:crown:' , `『${client.user.tag}』` , true)
+            .addField('**MY ID**:id:' , `『${client.user.id}』` , true)
+                  .addField('**MY PREFIX**' , `『M』` , true)
+                  .addField('**My Language**' , `『JS』` , true)
+                  .setFooter('『Dev: ζ͜͡👑XMGX#3474』')
     })
 }
 });

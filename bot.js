@@ -56,6 +56,7 @@ client.on("message", message => {
 ❖Mping = يعطيك بنقك
 ❖Mimage = صورة السيرفر
 ❖Mavatar = يعطيك صورتك أو صورة الي تمنشنه
+❖Mid = معلومات حسابك
 ❖Mmsg = لارسال رسالة للشخص
 ❖Mreport = للتبليغ عن شخص
 ❖Mallbots = لمعرفة كل البوتات الي بالسيرفر
@@ -566,7 +567,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-					.setFooter("M Games")
+					.setFooter("『ζ͜͡M Bot』")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 
 					// eslint-disable-next-line max-depth
@@ -756,6 +757,49 @@ client.on("message", message => {
   .addField('**Pingo:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
   message.channel.sendEmbed(embed);
     }
+});
+
+
+var moment = require("moment");
+client.on('message', message => {
+  var prefix = 'M';
+  
+  if (message.content.startsWith(prefix + "id")) {
+  if(!message.channel.guild) return message.reply(`**__بس بالسيرفرات__**`);
+   message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+    .setColor("!0a0909")
+    .setAuthor(message.author.username, message.author.avatarURL) 
+.addField('**تاريخ دخولك الدسكورد**:', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField('**تاريخ دخولك السيرفر**:', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+.addField("**اسمك**", `${message.author.username}`)
+.addField('**تاقك**', message.author.discriminator)
+.addField('**ايديك**', message.author.id)
+.setFooter("『معلوماتك』")  
+    message.channel.sendEmbed(id);
+})
+}       
 });
 
 

@@ -33,83 +33,88 @@ client.user.setGame(``,'https://www.twitch.tv/tarikrs');                        
 
 client.on("message", message => {
  if (message.content === prefix + "help") {
+      message.react("🇭") 
+      message.react("🇪") 
+      message.react("🇱") 
+      message.react("🇵") 
  message.channel.send(":ballot_box_with_check: Done! ")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-** Bot ${client.user.username} Commands **
-╔[❖══════❖]╗
-شكرا لأستخدام البوت 
-╚[❖══════❖]╝
-╔[❖══════❖]╗
-:crown: اوامر ادارية:crown: 
-❖Mbc = يرسل رسالة للكل
-❖Mkick = لطرد عضو مع السبب
-❖Mmutech = لتقفيل الشات محد يقتب به
-❖Munmutech = لفتح الشات
-╚[❖══════❖]╝
-╔[❖══════❖]╗
-:earth_africa: أوامر عامة:earth_asia: 
-**❖Minv = لاعطائك رابط اضافة البوت
-❖Mbot = معلومات البوت
-❖Mping = يعطيك بنقك
-❖Mimage = صورة السيرفر
-❖Mavatar = يعطيك صورتك أو صورة الي تمنشنه
-❖Mid = معلومات حسابك
-❖Mmsg = لارسال رسالة للشخص
-❖Mreport = للتبليغ عن شخص
-❖Mallbots = لمعرفة كل البوتات الي بالسيرفر
-❖Musers = لمعرفة السيرفرات ومستخدمين البوت
-❖Mserver = معلومات السيرفر**
-╚[❖══════❖]╝
+~~╔[❖══════❖]╗~~
+**شكرا لاستخــــ:hearts:ــدام البوت**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+:crown:اوامر ادارية:crown: 
+**╚:crown:❖Mbc = يرسل رسالة للكل
+╚:crown:❖Mkick = لطرد عضو مع السبب
+╚:crown:❖Mcc = يسوي لك 10 الوان
+╚:crown:❖Mmutech = لتقفيل الشات محد يكتب به
+╚:crown:❖Munmutech = لفتح الشات**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+:earth_africa:أوامر عامة:earth_asia: 
+**╚:earth_africa:❖Minv = لاعطائك رابط اضافة البوت
+╚:earth_africa:❖Mbot = معلومات البوت
+╚:earth_africa:❖Mping = يعطيك بنقك
+╚:earth_africa:❖Mimage = صورة السيرفر
+╚:earth_africa:❖Mavatar = يعطيك صورتك أو صورة الي تمنشنه
+╚:earth_africa:❖Mid = معلومات حسابك
+╚:earth_africa:❖Mmsg = لارسال رسالة للشخص
+╚:earth_africa:❖Mreport = للتبليغ عن شخص
+╚:earth_africa:❖Mallbots = لمعرفة كل البوتات الي بالسيرفر
+╚:earth_africa:❖Musers = لمعرفة السيرفرات ومستخدمين البوت
+╚:earth_africa:❖Mserver = معلومات السيرفر**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
 :video_game:الألعاب:video_game: 
-**❖Mhack 
+**╚:video_game:❖Mhack 
 لخداع صديقك انك هكرته
-❖Mمريم
+╚:video_game:❖Mمريم
 لعبة مريم
-❖Mصراحة
+╚:video_game:❖Mصراحة
 لعبة صراحة
-❖Mmine
+╚:video_game:❖Mmine
 اسئلة ماين كرافتية
-❖MFort
+╚:video_game:❖MFort
 اسئلة عن فورت نايت
-❖Mfkk
+╚:video_game:❖Mfkk
 لعبة فكك
-❖Mلغز
+╚:video_game:❖Mلغز
 يعطيك لغز والذكي يحله
-❖Mxo
+╚:video_game:❖Mxo
 لعبة xo
-❖Ma3lam
+╚:video_game:❖Ma3lam
 يعطيك علم وانت احزر وش هو
-❖M3wasm
+╚:video_game:❖M3wasm
 لعبة عواصم
-❖Mلوخيروك
+╚:video_game:❖Mلوخيروك
 لعبة لو خيروك
-❖Mعقاب
+╚:video_game:❖Mعقاب
 لعبة عقاب**
-╚[❖══════❖]╝
-╔[❖══════❖]╗ 
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗ ~~
 :sunglasses:الترحيب:sunglasses:
 سوي روم اسمه
 welcome 
 اوor
 『الترحيب』
 وبس
-╚[❖══════❖]╝
-╔[❖══════❖]╗
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
 :headphones:أوامر الأغاني:headphones:
-Mmusic
+╚:headphones:❖Mmusic
 كل الأوامر هنا
-╚[❖══════❖]╝
-╔[❖══════❖]╗
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
 -invite the bot:
 الرابط
 https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=3401794&scope=bot
 
 -Support server:
 https://discord.gg/Y2KaX9g.
-╚[❖══════❖]╝
+__╚[❖══════❖]╝__
 `)
 
 
@@ -321,6 +326,69 @@ setTimeout(() => {
   cooldown.delete(message.author.id)
 }, cdseconds * 1000)
     });
+
+
+client.on('message', message => {
+    if(message.content === prefix + 'cc') {
+                         if(!message.channel.guild) return message.channel.send('**._.**'); 
+         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**ماعند البرمشن المطلوب**').then(msg => msg.delete(6000))
+      message.guild.createRole({
+                  name: "1",
+                    color: "#000501",
+                    permissions: []
+     })
+           message.guild.createRole({
+                  name: "2",
+                    color: "#28ff00",
+                    permissions: []
+     })
+                message.guild.createRole({
+                  name: "3",
+                    color: "#0001ff",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "4",
+                    color: "#fff100",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "5",
+                    color: "#ff4800",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "6",
+                    color: "#ff0000",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "7",
+                    color: "#ff00db",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "8",
+                    color: "#9100ff",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "9",
+                    color: "#00fcff",
+                    permissions: []
+     })
+                     message.guild.createRole({
+                  name: "10",
+                    color: "RANDOM",
+                    permissions: []
+     })
+
+
+          message.channel.sendMessage({embed: new Discord.RichEmbed()
+     .setColor('#28ff00').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('**تمت المهمة**')});
+    }
+	});
+
 
 
 client.on('message', message => {

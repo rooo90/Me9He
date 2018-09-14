@@ -24,9 +24,8 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 });
 
 
-// playing
 client.on('ready', () => {                           
-client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp | Minv`,'https://www.twitch.tv/v5bz');
+client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`Mhelp | Minv | ${client.guilds.size} Server`,'https://www.twitch.tv/v5bz');
 }); 
 
 

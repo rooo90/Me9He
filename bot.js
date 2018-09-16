@@ -30,18 +30,86 @@ client.user.setGame(``,'https://www.twitch.tv/tarikrs');                        
 
 
 
-client.on("message", message => {
+ client.on("message", message => {
  if (message.content === prefix + "help") {
       message.react("🇭") 
       message.react("🇪") 
       message.react("🇱") 
       message.react("🇵") 
+  const embed = new Discord.RichEmbed()
+      .setColor("#ff5d00")
+      .setDescription(`
+╔═══════════════════════╗
+**شكرا لاستخــــ:hearts:ــدام البوت**
+
+**❧╚:robot:❖=Mhelp-bot
+❧╚:robot:❖=أوامر البوت**
+__=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=__
+**❧╚:crown:❖=Mhelp-ad
+❧╚:crown:❖=الأوامر الادارية**
+__=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=__
+**❧╚:headphones:❖=Mmusic
+❧╚:headphones:❖=أوامر الأغاني**
+__=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=__
+**❧╚:earth_africa:❖=Mhelp-ge 
+❧╚:earth_africa:❖=الأوامر العامة**
+__=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=__
+**❧╚:video_game:❖=Mhelp-ga
+❧╚:video_game:❖أوامر الالعاب**
+__=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=__
+**❧╚:rose:❖=الترحيب
+الرجاء عمل روم اسمه
+welcome
+أو 
+『الترحيب』**
+╚═══════════════════════╝
+      `)
+   message.channel.sendEmbed(embed)
+  console.log('[Help] Send By: ' + message.author.username)
+    }
+   });
+
+
+client.on("message", message => {
+ if (message.content === prefix + "help-bot") {
+      message.react("🇩") 
+      message.react("🇲")  
  message.channel.send(":ballot_box_with_check: Done! ")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-~~╔[❖══════❖]╗~~
+__╔[❖══════❖]╗__
+**شكرا لاستخــــ:hearts:ــدام البوت**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+**:robot:أوامر البوت:robot:**
+**❧╚:robot:=Minv=لدعوة البوت
+❧╚:robot:Mbot=معلومات البوت
+❧╚:robot:Musers=لمعرفة عدد السيرفرات والمستخدمين**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+╚❧**Support server:**
+https://discord.gg/Y2KaX9g.
+__╚[❖══════❖]╝__
+`)
+
+
+message.author.sendEmbed(embed)
+}
+});
+
+
+client.on("message", message => {
+ if (message.content === prefix + "help-ad") {
+      message.react("🇩") 
+      message.react("🇲")  
+ message.channel.send(":ballot_box_with_check: Done! ")
+  const embed = new Discord.RichEmbed()
+      .setColor("#00ff47")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+__╔[❖══════❖]╗__
 **شكرا لاستخــــ:hearts:ــدام البوت**
 ~~╚[❖══════❖]╝
 ╔[❖══════❖]╗~~
@@ -51,24 +119,71 @@ client.on("message", message => {
 ╚:crown:❖Mcc = يسوي لك 10 الوان
 ╚:crown:❖Mmutech = لتقفيل الشات محد يكتب به
 ╚:crown:❖Munmutech = لفتح الشات**
+╚:crown:❖**الرجاء عمل روم اسمه __الابلاغات__ لتشغيل أمر
+Mreport
 ~~╚[❖══════❖]╝
 ╔[❖══════❖]╗~~
-:earth_africa:أوامر عامة:earth_asia: 
-**╚:earth_africa:❖Minv = لاعطائك رابط اضافة البوت
-╚:earth_africa:❖Mbot = معلومات البوت
-╚:earth_africa:❖Mping = يعطيك بنقك
-╚:earth_africa:❖Mimage = صورة السيرفر
-╚:earth_africa:❖Mavatar = يعطيك صورتك أو صورة الي تمنشنه
-╚:earth_africa:❖Mid = معلومات حسابك
-╚:earth_africa:❖Mmsg = لارسال رسالة للشخص
-╚:earth_africa:❖Mreport = للتبليغ عن شخص
-╚:earth_africa:❖Mallbots = لمعرفة كل البوتات الي بالسيرفر
-╚:earth_africa:❖Musers = لمعرفة السيرفرات ومستخدمين البوت
-╚:earth_africa:❖Mserver = معلومات السيرفر**
+**╚❧Support server:**
+https://discord.gg/Y2KaX9g.
+__╚[❖══════❖]╝__
+`)
+
+
+message.author.sendEmbed(embed)
+}
+});
+
+
+client.on("message", message => {
+ if (message.content === prefix + "help-ge") {
+      message.react("🇩") 
+      message.react("🇲")  
+ message.channel.send(":ballot_box_with_check: Done! ")
+  const embed = new Discord.RichEmbed()
+      .setColor("#00ff47")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+__╔[❖══════❖]╗__
+**شكرا لاستخــــ:hearts:ــدام البوت**
 ~~╚[❖══════❖]╝
 ╔[❖══════❖]╗~~
-:video_game:الألعاب:video_game: 
-**╚:video_game:❖Mhack 
+**:earth_africa:أوامر عامة:earth_asia:
+❧╚:earth_africa:Mping=بنقك
+❧╚:earth_africa:Mavatar=صورتك أو صورة الي تمنشنه
+❧╚:earth_africa:Mimage=صورة السيرفر
+❧╚:earth_africa:Mid=معلومات حسابك
+❧╚:earth_africa:Mmsg=لارسال رسالة  لاي شخص
+❧╚:earth_africa:Mallbots=كل بوتات السيرفر
+❧╚:earth_africa:Mserver=معلومات السيرفر
+❧╚:earth_africa:Mreport=للتبليغ على اي شخص**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+**╚❧Support server:**
+https://discord.gg/Y2KaX9g.
+__╚[❖══════❖]╝__
+`)
+
+
+message.author.sendEmbed(embed)
+}
+});
+
+
+client.on("message", message => {
+ if (message.content === prefix + "help-ga") {
+      message.react("🇩") 
+      message.react("🇲")  
+ message.channel.send(":ballot_box_with_check: Done! ")
+  const embed = new Discord.RichEmbed()
+      .setColor("#00ff47")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+__╔[❖══════❖]╗__
+**شكرا لاستخــــ:hearts:ــدام البوت**
+~~╚[❖══════❖]╝
+╔[❖══════❖]╗~~
+**:video_game:الألعاب:video_game:
+╚:video_game:❖Mhack 
 لخداع صديقك انك هكرته
 ╚:video_game:❖Mمريم
 لعبة مريم
@@ -93,34 +208,18 @@ client.on("message", message => {
 ╚:video_game:❖Mعقاب
 لعبة عقاب**
 ~~╚[❖══════❖]╝
-╔[❖══════❖]╗ ~~
-:sunglasses:الترحيب:sunglasses:
-سوي روم اسمه
-welcome 
-اوor
-『الترحيب』
-وبس
-~~╚[❖══════❖]╝
 ╔[❖══════❖]╗~~
-:headphones:أوامر الأغاني:headphones:
-╚:headphones:❖Mmusic
-كل الأوامر هنا
-~~╚[❖══════❖]╝
-╔[❖══════❖]╗~~
--invite the bot:
-الرابط
-https://discordapp.com/oauth2/authorize?client_id=463384497870864394&permissions=3401794&scope=bot
-
--Support server:
+**╚❧Support server:**
 https://discord.gg/Y2KaX9g.
 __╚[❖══════❖]╝__
 `)
 
 
 message.author.sendEmbed(embed)
-  console.log('[Help] Send By: ' + message.author.username)
 }
 });
+
+
 
 client.on('message' , message => {
   if (message.author.bot) return;

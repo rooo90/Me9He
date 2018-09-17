@@ -345,7 +345,7 @@ const embed = new Discord.RichEmbed()
 اسم السيرفر: **${guild.name}**
 صاحب السيرفر: **${guild.owner}**`)
          .setColor("#00ff47")
-         .setFooter('M Games' , client.user.avatarURL)
+         .setFooter('『ζ͜͡M Bot』' , client.user.avatarURL)
            client.channels.get("470304850081480724").send({embed});
 }
 
@@ -360,7 +360,7 @@ const embed = new Discord.RichEmbed()
 اسم السيرفر: **${guild.name}**
 صاحب السيرفر: **${guild.owner}**`)
          .setColor("#ff0004")
-         .setFooter('M Games' , client.user.avatarURL)
+         .setFooter('『ζ͜͡M Bot』' , client.user.avatarURL)
            client.channels.get("470304850081480724").send({embed});
 }
 
@@ -698,18 +698,18 @@ client.on('message', async msg => { // eslint-disable-line
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
+		if (!voiceChannel) return msg.channel.send('**الرجاء دخول روم صوتي**');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
 			//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
+			return msg.channel.send('**ماعندي صلاحيات علشان اتكلم**');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
+			return msg.channel.send('**ماعندي صلاحيات علشان اتكلم**');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 		if (!permissions.has('EMBED_LINKS')) {
-			return msg.channel.sendMessage("**يجب توآفر برمشن `EMBED LINKS`لدي **")
+			return msg.channel.sendMessage("__EMBED_LINKS__**الرجاء اعطائي صلاحية**")
 		}
 
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
@@ -730,7 +730,7 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 5);
 					let index = 0;
 					const embed1 = new Discord.RichEmbed()
-			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
+			        .setDescription(`**الرجاء اختيار رقم الاغنية** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 					.setFooter("『ζ͜͡M Bot』")
@@ -745,44 +745,44 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 						});//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('لم يتم إختيآر مقطع صوتي');
+						return msg.channel.send('**لم يتم اختيار اغنية**');
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.send(':X: لا يتوفر نتآئج بحث ');
+					return msg.channel.send(':sweat:**ما لقيت شي**:sweat:');
 				}
 			}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 			return handleVideo(video, msg, voiceChannel);
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	} else if (command === `skip`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
-		serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
+		if (!msg.member.voiceChannel) return msg.channel.send('**أنت لست بروم صوتي**');
+		if (!serverQueue) return msg.channel.send('**لا يوجد مقطع لتجاوزه**');
+		serverQueue.connection.dispatcher.end('**تم تجاوز الاغنية**');
 		return undefined;
 	} else if (command === `stop`) {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لإيقآفه');
+		if (!msg.member.voiceChannel) return msg.channel.send('**أنت لست بروم صوتي**');
+		if (!serverQueue) return msg.channel.send('**لايوجد مقطع لايقافه**');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('تم إيقآف هذآ المقطع');
+		serverQueue.connection.dispatcher.end('**تم ايقاف المقطع**');
 		return undefined;
 	} else if (command === `vol`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء شغآل.');
+		if (!msg.member.voiceChannel) return msg.channel.send('**أنت لست بروم صوتي**');
+		if (!serverQueue) return msg.channel.send('**مافيه شي شغال**');
 		if (!args[1]) return msg.channel.send(`:loud_sound: مستوى الصوت **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
 		return msg.channel.send(`:speaker: تم تغير الصوت الي **${args[1]}**`);
 	} else if (command === `np`) {
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
+		if (!serverQueue) return msg.channel.send('**لايوجد شيء حاليا**');
 		const embedNP = new Discord.RichEmbed()
 	.setDescription(`:notes: الان يتم تشغيل : **${serverQueue.songs[0].title}**`)
 		return msg.channel.sendEmbed(embedNP);
 	} else if (command === `queue`) {
 		//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
+		if (!serverQueue) return msg.channel.send('**لايوجد شيء حاليا**');
 		let index = 0;
 		//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		const embedqu = new Discord.RichEmbed()
@@ -795,16 +795,16 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
+			return msg.channel.send('**تم ايقاف المقطع مؤقتا**');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		return msg.channel.send('لا يوجد شيء حالي ف العمل.');
+		return msg.channel.send('**لايوجد شيء حاليا**');
 	} else if (command === "resume") {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-			return msg.channel.send('استأنفت الموسيقى بالنسبة لك !');
+			return msg.channel.send('**تم استئناف الاغنية**');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		return msg.channel.send('لا يوجد شيء حالي في العمل.');
+		return msg.channel.send('**لايوجد شيء حاليا**');
 	}
 
 	return undefined;

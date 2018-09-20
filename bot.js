@@ -1069,7 +1069,6 @@ message.channel.send(embed)
 const perfix = 'M';
 client.on('message', msg => {
  if (msg.content.startsWith(prefix + 'msg')) {
-      message.react("📨")
       let args = msg.content.split(' ').slice(1)
       if (!args[0]) return msg.reply(`**منشن ._.**`)
       if (!args[1]) return msg.reply(`**ترسل رسالة فاضية؟._.**`)

@@ -1110,7 +1110,7 @@ client.on('message', message => {
             .addField('**MY ID**:id:' , `『${client.user.id}』` , true)
                   .addField('**MY PREFIX**' , `『M』` , true)
                   .addField('**My Language**' , `『JS』` , true)
-                  .setFooter('『Dev: ζ͜͡👑XMGX#3474』')
+                  .setFooter('『Dev: ζ͜͡👑XMGX#0229』')
     })
 }
 });

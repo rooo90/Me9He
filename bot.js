@@ -925,6 +925,7 @@ ${prefix}stop
 
 client.on("message", message => {
       if (message.content === "Mping") {
+      message.react("📶") 
       const embed = new Discord.RichEmbed()
   .setColor("#00ff47")
   .addField('**Pingo:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
@@ -980,6 +981,7 @@ moment.locale('ar-TN');
 
 client.on('message', message => {
     if (message.content.startsWith("Mavatar")) {
+      message.react("🖼") 
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -1003,6 +1005,7 @@ client.on("message", message => {
           if(!message.channel.guild) return;
    if(message.author.bot) return;
       if(message.content === prefix + "image"){ 
+      message.react("🖼") 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`صورة السيرفر`)
@@ -1040,6 +1043,7 @@ client.on('message', message => {
      if(!message.channel.guild) return;
 var prefix = "M";
                 if(message.content.startsWith(prefix + 'allbots')) {
+      message.react("🤖") 
 
     
     if (message.author.bot) return;
@@ -1065,6 +1069,7 @@ message.channel.send(embed)
 const perfix = 'M';
 client.on('message', msg => {
  if (msg.content.startsWith(prefix + 'msg')) {
+      message.react("📨")
       let args = msg.content.split(' ').slice(1)
       if (!args[0]) return msg.reply(`**منشن ._.**`)
       if (!args[1]) return msg.reply(`**ترسل رسالة فاضية؟._.**`)

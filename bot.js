@@ -334,7 +334,18 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
-
+client.on("message", async message => {
+if(message.content.startsWith("Mem")) {
+let args = message.content.split(" ").slice(1).join(" ")
+if(message.author.id != "419471939493429250") return;
+if(!args) return message.reply("._.");
+message.delete();
+var emb = new  Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setDescription(args);
+message.channel.send(emb)
+}
+})
 
 
 client.on('guildCreate', guild => {

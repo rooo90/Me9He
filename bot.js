@@ -72,9 +72,8 @@ welcome
 
 client.on("message", message => {
  if (message.content === prefix + "help-bot") {
-      message.react("🇩") 
-      message.react("🇲")  
- message.channel.send(":ballot_box_with_check: Done! ")
+      message.react("Ⓜ") 
+ message.channel.send("**:ballot_box_with_check: Done!**")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
@@ -102,9 +101,8 @@ message.author.sendEmbed(embed)
 
 client.on("message", message => {
  if (message.content === prefix + "help-ad") {
-      message.react("🇩") 
-      message.react("🇲")  
- message.channel.send(":ballot_box_with_check: Done! ")
+      message.react("Ⓜ") 
+ message.channel.send("**:ballot_box_with_check: Done!**")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
@@ -136,9 +134,8 @@ message.author.sendEmbed(embed)
 
 client.on("message", message => {
  if (message.content === prefix + "help-ge") {
-      message.react("🇩") 
-      message.react("🇲")  
- message.channel.send(":ballot_box_with_check: Done! ")
+      message.react("Ⓜ")    
+ message.channel.send("**:ballot_box_with_check: Done!**")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)
@@ -171,9 +168,8 @@ message.author.sendEmbed(embed)
 
 client.on("message", message => {
  if (message.content === prefix + "help-ga") {
-      message.react("🇩") 
-      message.react("🇲")  
- message.channel.send(":ballot_box_with_check: Done! ")
+      message.react("Ⓜ") 
+ message.channel.send("**:ballot_box_with_check: Done!**")
   const embed = new Discord.RichEmbed()
       .setColor("#00ff47")
       .setThumbnail(message.author.avatarURL)

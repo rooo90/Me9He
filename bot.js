@@ -1081,7 +1081,6 @@ message.channel.send(embed)
 
 
 client.on('message', msg => {
-if(message.author.bot) return;
  if (msg.content.startsWith(prefix + 'msg')) {
       let args = msg.content.split(' ').slice(1)
       if (!args[0]) return msg.reply(`**منشن ._.**`)

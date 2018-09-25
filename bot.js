@@ -31,6 +31,7 @@ client.user.setGame(``,'https://www.twitch.tv/tarikrs');                        
 
 
  client.on("message", message => {
+if(message.author.bot) return;
  if (message.content === prefix + "help") {
       message.react("🇭") 
       message.react("🇪") 
@@ -71,6 +72,7 @@ welcome
 
 
 client.on("message", message => {
+if(message.author.bot) return;
  if (message.content === prefix + "help-bot") {
       message.react("Ⓜ") 
  message.channel.send("**:ballot_box_with_check: Done!**")
@@ -100,6 +102,7 @@ message.author.sendEmbed(embed)
 
 
 client.on("message", message => {
+if(message.author.bot) return;
  if (message.content === prefix + "help-ad") {
       message.react("Ⓜ") 
  message.channel.send("**:ballot_box_with_check: Done!**")
@@ -133,6 +136,7 @@ message.author.sendEmbed(embed)
 
 
 client.on("message", message => {
+if(message.author.bot) return;
  if (message.content === prefix + "help-ge") {
       message.react("Ⓜ")    
  message.channel.send("**:ballot_box_with_check: Done!**")
@@ -167,6 +171,7 @@ message.author.sendEmbed(embed)
 
 
 client.on("message", message => {
+if(message.author.bot) return;
  if (message.content === prefix + "help-ga") {
       message.react("Ⓜ") 
  message.channel.send("**:ballot_box_with_check: Done!**")
@@ -377,13 +382,14 @@ const embed = new Discord.RichEmbed()
 
 
 client.on('message', message => {
+if(message.author.bot) return;
               if(!message.channel.guild) return;
     var prefix = "M";
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**الأمر بالسيرفرات بس**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**ماعندك الصلاحية المطلوبة**' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "M Games";
+    let copy = "『ζ͜͡M Bot』";
     let request = `Requested By ${message.author.username}`;
     if (!args) return message.reply('**ترسل برودكاست فاضي؟**');message.channel.send(`**متأكد؟** \` ${args}\``).then(msg => {
     msg.react('✅')
@@ -434,6 +440,7 @@ setTimeout(() => {
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     if(message.content === prefix + 'cc') {
                          if(!message.channel.guild) return message.channel.send('**._.**'); 
          if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**ماعند البرمشن المطلوب**').then(msg => msg.delete(6000))
@@ -497,6 +504,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     if (message.content === "Mmutech") {
                         if(!message.channel.guild) return message.reply('**الأمر ذا بس للسيرفرات._.**');
 
@@ -527,6 +535,7 @@ if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('**م�
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     var prefix = "M"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -564,6 +573,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+if(message.author.bot) return;
     var name1 = message.mentions.users.first();
     var reason = message.content.split(' ').slice(2).join(' ');
     if(message.content.startsWith(prefix + 'report')) {
@@ -885,6 +895,7 @@ function play(guild, song) {
 
 client.on("message", message => {
  if (message.content === `${prefix}music`) {
+if(message.author.bot) return;
   const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setColor("#00ff47")//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setDescription(`
@@ -924,6 +935,7 @@ ${prefix}stop
 
 
 client.on("message", message => {
+if(message.author.bot) return;
       if (message.content === "Mping") {
       message.react("📶") 
       const embed = new Discord.RichEmbed()
@@ -936,6 +948,7 @@ client.on("message", message => {
 
 var moment = require("moment");
 client.on('message', message => {
+if(message.author.bot) return;
   var prefix = 'M';
   
   if (message.content.startsWith(prefix + "id")) {
@@ -980,6 +993,7 @@ moment.locale('ar-TN');
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     if (message.content.startsWith("Mavatar")) {
       message.react("🖼") 
         var mentionned = message.mentions.users.first();
@@ -1000,6 +1014,7 @@ client.on('message', message => {
 
 
 client.on("message", message => {
+if(message.author.bot) return;
     const prefix = "M"
               
           if(!message.channel.guild) return;
@@ -1020,7 +1035,6 @@ client.on("message", message => {
   });
 
 client.on('message', function(msg) {
-    const prefix = 'M'
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
       .setColor('#00ff47')
@@ -1040,6 +1054,7 @@ client.on('message', function(msg) {
   });
 
 client.on('message', message => {
+if(message.author.bot) return;
      if(!message.channel.guild) return;
 var prefix = "M";
                 if(message.content.startsWith(prefix + 'allbots')) {
@@ -1065,9 +1080,8 @@ message.channel.send(embed)
 
 
 
-
-const perfix = 'M';
 client.on('message', msg => {
+if(message.author.bot) return;
  if (msg.content.startsWith(prefix + 'msg')) {
       let args = msg.content.split(' ').slice(1)
       if (!args[0]) return msg.reply(`**منشن ._.**`)
@@ -1085,6 +1099,7 @@ client.on('message', msg => {
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     if (message.content.startsWith("Musers")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
@@ -1101,6 +1116,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
+if(message.author.bot) return;
     if (message.content.startsWith("Mbot")) {
     message.channel.send({
         embed: new Discord.RichEmbed()

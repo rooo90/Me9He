@@ -277,7 +277,7 @@ client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('RSALH')){
-if(!message.author.id === '419471939493429250') return;
+if(!message.author.id === '490927770143031296') return;
 message.channel.sendMessage('LOADING... |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -287,7 +287,7 @@ m.sendMessage(args)
 
 const child_process = require("child_process");
 const adminprefix = "M";
-const devs = ['419471939493429250'];
+const devs = ["419471939493429250","490927770143031296"];
 
 client.on('message', message => {
 if(message.content === adminprefix + "restart") {
@@ -301,7 +301,7 @@ if(message.content === adminprefix + "restart") {
   
   }); 
 
-const developers = ["419471939493429250","419471939493429250",""]
+const developers = ["419471939493429250","490927770143031296",""]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
@@ -338,7 +338,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 client.on("message", async message => {
 if(message.content.startsWith("Mem")) {
 let args = message.content.split(" ").slice(1).join(" ")
-if(message.author.id != "419471939493429250") return;
+if(message.author.id != "490927770143031296") return;
 if(!args) return message.reply("._.");
 message.delete();
 var emb = new  Discord.RichEmbed()
